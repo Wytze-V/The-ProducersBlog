@@ -1,34 +1,42 @@
+<?php require_once('assets/includes/include.php'); ?>
+
 <?php
-require_once('assets/includes/include.php');
+$con = getDBConnection();
+
+// Check if email & password has been submitted
+if(!empty($_POST['email']) && !empty($_POST['password'])){
+	//maak query string gereed
+	$query = "INSERT INTO users (username, email, password, usertype) VALUES (:username, :email, :password, :usertype)";
+	$stmt = $con->prepare($query);
+	
+	// laat query string zien waar de values staan
+	$stmt->bindValue(':username', $_POST['username']);
+	$stmt->bindValue(':email', $_POST['email']);
+	$stmt->bindValue(':password', password_hash($_POST['password'], PASSWORD_BCRYPT));
+	$stmt->bindValue(':usertype', $_POST['usertype']);
+	
+	if( $stmt->execute() ){
+		echo 'Success';
+	} else {
+		echo 'Failure: ';
+		print $stmt->errorCode();
+	}
+
+} 
 ?>
 
-<div class="header">
-	<h2>Register</h2>
-</div>
-<form method="post" action="register.php">
-	<?php echo'display_error()'; ?>
-
-	<div class="input-group">
-		<label>Username</label>
-		<input type="text" name="username" value="<?php echo' $username'; ?>">
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form" action="" method="POST">
+				<input type="text" name="username" placeholder="username"/>
+				<input type="password" name="password" placeholder="password"/>
+				<input type="text" name="email" placeholder="email address"/>
+				<input type="hidden" name="usertype" value="gebruiker"/>
+				<button>Create</button>
+				<p class="">Already registered? <a href="login.php">Sign in</a></p>
+				<p class="">Go <a href="/webdev/user/">Home</a></p>
+			</form>
+		</div>
 	</div>
-	<div class="input-group">
-		<label>Email</label>
-		<input type="email" name="email" value="<?php echo' $email'; ?>">
-	</div>
-	<div class="input-group">
-		<label>Password</label>
-		<input type="password" name="password_1">
-	</div>
-	<div class="input-group">
-		<label>Confirm password</label>
-		<input type="password" name="password_2">
-	</div>
-	<div class="input-group">
-		<button type="submit" class="btn" name="register_btn">Register</button>
-	</div>
-	<p>
-		Already a member? <a href="login.php">Sign in</a>
-	</p>
-</form>
-
+	
+<?php include_once('assets/includes/footer.php'); ?>
