@@ -24,6 +24,12 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 	
 	// als er een resultaat is en het wachtwoord matched, sla dan de sessie op
 	if(count($result) > 0 && password_verify($_POST['password'], $result['password'])){
+		//user found
+		// check if user is admin or user
+		$logged_in_user = $account->fetch(PDO::FETCH_ASSOC);
+		if($logged_in_user['usertype'] == 'admin'){
+			$_SESSION['idUsers'] = $logged_in_user;
+		}
 		$_SESSION['idUsers'] = $result['idUsers'];
 		$_SESSION['admin'] = $result['usertype'];
 		session_start();
