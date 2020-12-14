@@ -1,7 +1,14 @@
 <?php require_once('assets/includes/include.php'); ?>
 
 <?php
+
 $con = getDBConnection();
+
+// kijk of user al is ingelogd
+if(isset($_SESSION['idUsers'])){
+	// User is al ingelogd, stuur user naar homepage
+	header("location: home.php");
+}
 
 // Check if email & password has been submitted
 if(!empty($_POST['email']) && !empty($_POST['password'])){
@@ -16,7 +23,8 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
 	$stmt->bindValue(':usertype', $_POST['usertype']);
 	
 	if( $stmt->execute() ){
-		echo 'Success';
+		//echo 'Success';
+		header("location: login.php");
 	} else {
 		echo 'Failure: ';
 		print $stmt->errorCode();
