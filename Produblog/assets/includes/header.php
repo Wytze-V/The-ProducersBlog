@@ -17,7 +17,7 @@
 <?php
 	$con = getDBConnection();
 
-		// als je ingelogt bent staat er log out + user id. // als je nog niet bent ingelogt staat er log in
+		// als je ingelogt bent staat er log out + username. // als je nog niet bent ingelogt staat er log in
 		if(isset($_SESSION['idUsers'])){	
 				
 			//Maak query gereed om user info te tonen

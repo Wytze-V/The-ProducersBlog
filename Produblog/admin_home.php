@@ -1,8 +1,13 @@
 <?php
 require_once('assets/includes/include.php');
 
-if (!isAdmin()) {
-	header('location: login.php');
+  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+	echo"
+	hoi
+	";
+
+}else{
+	header('location: home.php');
 }
 
 ?>
