@@ -13,7 +13,7 @@ function getDBConnection(){
 	Try{
 		$con = new PDO ('mysql:host ='.$host.';charset=utf8;dbname='.$db, $user, $pass);
 		$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
+		$con->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 	}	
 	catch (Exception $e)
 	{

@@ -42,7 +42,7 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
 				<input type="hidden" name="usertype" value="gebruiker"/>
 				<button>Create</button>
 				<p class="">Already registered? <a href="login.php">Sign in</a></p>
-				<p class="">Go <a href="/webdev/user/">Home</a></p>
+				<p class="">Go <a href="home.php">Home</a></p>
 			</form>
 		</div>
 	</div>
