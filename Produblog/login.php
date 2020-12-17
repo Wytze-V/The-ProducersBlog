@@ -26,6 +26,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 	if(count($result) > 0 && password_verify($_POST['password'], $result['password'])){
 		$_SESSION['idUsers'] = $result['idUsers'];
 		$_SESSION['usertype'] = $result['usertype'];
+		$_SESSION['username'] = $result['username'];
 		session_start();
 		header("location: home.php");
 	} else {

@@ -99,6 +99,13 @@ body {
 .container .info span .fa {
   color: #EF3B3A;
 }
+.welkom-home{
+  margin: auto;
+  width: 50%;
+  border: 3px solid black;
+  padding: 10px;
+
+}
 
 .styled-table {
     border-collapse: collapse;
