@@ -12,7 +12,7 @@ $con = getDBConnection();
 			if($query_run){
 				
 				echo '
-				<table width="50%" border="1" cellpadding="5" cellspacing="5"
+				<table class="styled-table">
 					<thead>
 						<tr>
 							<th>User id</th>
@@ -30,7 +30,8 @@ $con = getDBConnection();
 				foreach($query_run as $row){
 			
 				echo'
-						<tr>
+				<tbody>
+						<tr class="active-row">
 							<th> '.$row->idUsers.' </th>
 							<th> '.$row->username.' </th>
 							<th> '.$row->email.' </th>
@@ -38,6 +39,8 @@ $con = getDBConnection();
 							<th></th>
 							<th></th>
 						</tr>
+						
+				</tbody>
 						
 					
 				
