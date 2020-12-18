@@ -30,7 +30,7 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
 		print $stmt->errorCode();
 	}
 
-} 
+}
 ?>
 
 	<div class="login-page">

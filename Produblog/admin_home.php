@@ -36,7 +36,9 @@ $con = getDBConnection();
 							<th> '.$row->username.' </th>
 							<th> '.$row->email.' </th>
 							<th> '.$row->usertype.' </th>
-							<th></th>
+							<th>
+							<a href="edit.php" class="edit_btn" >Edit</a>
+							</th>
 							<th></th>
 						</tr>
 						

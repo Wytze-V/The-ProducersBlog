@@ -145,6 +145,13 @@ body {
     font-weight: bold;
     color: #009879;
 }
+.edit_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: #2E8B57;
+    color: white;
+    border-radius: 3px;
+}
 
 /*form, .content {
 	width: 40%;
