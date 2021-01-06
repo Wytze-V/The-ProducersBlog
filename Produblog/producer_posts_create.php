@@ -58,13 +58,14 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
 
     //insert into database
   // $stmt = $db->prepare('INSERT INTO techno_blog (articleTitle,articleDescrip,articleContent,articleDate) VALUES (:articleTitle, :articleDescrip, :articleContent, :articleDate)') ;
-  $stmt = $con->prepare('INSERT INTO post (postname,postcontent,date) VALUES (:postname, :postcontent, :date)') ;
+  $stmt = $con->prepare('INSERT INTO post (postname,postcontent,idUsers, date) VALUES (:postname, :postcontent,:idUsers, :date)') ;
 
 
 
-$stmt->execute(array(
+	$stmt->execute(array(
     ':postname' => $postname,
     ':postcontent' => $postcontent,
+	':idUsers' => $_SESSION['idUsers'],
     ':date' => date('Y-m-d H:i:s'),
     
 ));
@@ -103,7 +104,6 @@ $stmt->execute(array(
         <h4><label>Long Description(Body Content)</label><br>
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
-
        
         <button name="submit" class="subbtn">Submit</button>
 
