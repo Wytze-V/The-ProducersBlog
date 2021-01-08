@@ -41,7 +41,7 @@
 				  <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>Page 1 <span class='caret'></span></a>
 					<ul class='dropdown-menu'>
 					  <li><a href='#'>Page 1-1</a></li>
-					  <li><a href='posttest.php'>Page 1-2 posttest</a></li>
+					  <li><a href='#'>Page 1-2</a></li>
 			";
 			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 				echo "  <li><a href='admin_home.php'>admin home</a></li> ";
@@ -52,7 +52,7 @@
 				  <li><a href='#'>Page 2</a></li>
 				</ul>
 					<ul class='nav navbar-nav navbar-right'>
-						<li><a href='#'><span class='glyphicon glyphicon-user'></span> Mijn Account</a></li>
+						<li><a href='mijnaccount.php'><span class='glyphicon glyphicon-user'></span> Mijn Account</a></li>
 						<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout ".$result['username']."</a></li>
 					</ul>	
 			</div>
