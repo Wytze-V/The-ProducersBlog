@@ -43,6 +43,9 @@
 					  <li><a href='#'>Page 1-1</a></li>
 					  <li><a href='#'>Page 1-2</a></li>
 			";
+			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
+				echo "  <li><a href='producer_posts_create.php'>create post</a></li> ";
+			  }
 			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 				echo "  <li><a href='admin_home.php'>admin home</a></li> ";
 			  }

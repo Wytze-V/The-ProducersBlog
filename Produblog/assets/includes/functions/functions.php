@@ -1,18 +1,21 @@
 <?php
-// Hier worden de gebruikers uit de database opgehaald
-function getUser($id = null){
-	$input_parameters = array();
-	
-	$con = getDBConnection();
-	$query = "SELECT * FROM users";
-	if($id!= null){
-		$query = " SELECT * FROM users WHERE idUsers=? ";
-		array_push($input_parameters , $id);
-	}
-	$stmt = $con->prepare($query);
-	$stmt->execute($input_parameters);
-	return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+// Hier wordt een account in de database aangemaakt
+function insertUser($username,$password,$usertype,$email){
+	$con = getDbConnection();
+	$sql = "INSERT INTO users
+  (username,password,usertype,email)
+   VALUES (?,?,?,?)";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($username,$password,$usertype,$email));
 }
+function updateUser($username,$email,$nummer,$voornaam,$achternaam,$kvk,$adres,$plaats,$postcode,$provincie,$id){
+	$con = getDbConnection();
+	$sql = "UPDATE users SET username = ?, email= ? WHERE  idUsers=? ";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($username,$email,$id));
+}
+
+
 
 
 ?>
