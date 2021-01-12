@@ -31,69 +31,8 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
  
     <h2>Add New Article</h2>
 
-    <?php
 
-    //if form has been submitted process it
-    if(isset($_POST['submit'])){
-
- 
-
-        //collect form data
-        extract($_POST);
-
-        //very basic validations
-        if($postname ==''){
-            $error[] = 'Please enter the title.';
-        }
-
-        if($postcontent ==''){
-            $error[] = 'Please enter the content.';
-        }
-
-        if(!isset($error)){
-
-          try {
-
-
-
-    //insert into database
-  // $stmt = $db->prepare('INSERT INTO techno_blog (articleTitle,articleDescrip,articleContent,articleDate) VALUES (:articleTitle, :articleDescrip, :articleContent, :articleDate)') ;
-  $stmt = $con->prepare('INSERT INTO post (postname,postcontent,idUsers, date) VALUES (:postname, :postcontent,:idUsers, :date)') ;
-
-
-
-	$stmt->execute(array(
-    ':postname' => $postname,
-    ':postcontent' => $postcontent,
-	':idUsers' => $_SESSION['idUsers'],
-    ':date' => date('Y-m-d H:i:s'),
-    
-));
-//add categories
- 
-
-
-    //redirect to index page
-    header('Location: home.php');
-    exit;
-
-}catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-
-        }
-
-    }
-
-    //check for any errors
-    if(isset($error)){
-        foreach($error as $error){
-            echo '<p class="message">'.$error.'</p>';
-        }
-    }
-    ?>
-
- <form action="" method="post">
+ <form action="action/ac_post.php" method="post">
 
         <h4><label>Article Title</label><br>
         <input type="text" name="postname" style="width:100%;height:40px" value="<?php if(isset($error)){ echo $_POST['postname'];}?>"></h4>
@@ -105,7 +44,7 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
        
-        <button name="submit" class="subbtn">Submit</button>
+        <input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
 
 
     </form>

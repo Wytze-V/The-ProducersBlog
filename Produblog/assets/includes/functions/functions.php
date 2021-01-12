@@ -16,4 +16,25 @@ function updateUser($username,$email,$nummer,$idUsers){
 }
 	
 
+// Hier wordt een Post in de database aangemaakt
+function insertPost($postname,$postcontent,$idUsers,$date){
+	$con = getDBConnection();
+	$sql = "INSERT INTO post
+  (postname, postcontent, idUsers, date) VALUES (:postname, :postcontent, :idUsers, :date)"; 
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array(
+    ':postname' => $postname,
+    ':postcontent' => $postcontent,
+	':idUsers' => $_SESSION['idUsers'],
+    ':date' => date('Y-m-d H:i:s'),
+    
+));
+}
+
+function updatePost($postname,$postcontent,$date,$idPost){
+	$con = getDBConnection();
+	$sql = "UPDATE post SET postname = ?, postcontent= ?,  date =? WHERE  idPost=? ";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($postname,$postcontent,$data,$idPost));
+}
 ?>
