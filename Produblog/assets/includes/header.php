@@ -21,7 +21,7 @@
 		if(isset($_SESSION['idUsers'])){	
 				
 			//Maak query gereed om user info te tonen
-			$query = "SELECT idUsers, username, email FROM users WHERE idUsers = :idUsers";
+			$query = "SELECT idUsers, username, email, usertype FROM users WHERE idUsers = :idUsers";
 			$user =  $con->prepare($query);
 			$user->bindValue(':idUsers', $_SESSION['idUsers']);
 			$user->execute();

@@ -27,6 +27,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 		$_SESSION['idUsers'] = $result['idUsers'];
 		$_SESSION['usertype'] = $result['usertype'];
 		$_SESSION['username'] = $result['username'];
+		$_SESSION['email'] = $result['email'];
 		session_start();
 		header("location: home.php");
 	} else {
