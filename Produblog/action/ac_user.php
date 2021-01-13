@@ -24,15 +24,16 @@ require_once('../assets/includes/include.php');
 		$password = ($_POST['password']);
 		$usertype = ($_POST['usertype']);
 		$email = ($_POST['email']);
+		$date = date('Y-m-d H:i:s');
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		insertUser($username,password_hash($password, PASSWORD_DEFAULT),$usertype,$email);
+		insertUser($username,password_hash($password, PASSWORD_DEFAULT),$usertype,$email,$date);
 		header("location: ../login.php");
 		}
 		}elseif(isset($_POST['Update'])){
 		$username = ($_POST['username']);
 		$email = ($_POST['email']);
-		$usertype = $_SESSION['usertype'];
-		$id = $_SESSION['idUsers'];
+		$usertype = ($_SESSION['usertype']);
+		$id = ($_SESSION['idUsers']);
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
 		updateUser($username,$email,$usertype,$id);
 		header("location: ../mijnaccount.php");

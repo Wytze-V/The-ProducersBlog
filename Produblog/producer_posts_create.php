@@ -12,7 +12,7 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
 ?>
 <div class="postcre">
 <!-- On page head area--> 
-    <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+ <!--   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
     <script>
           tinymce.init({
              mode : "specific_textareas",
@@ -24,7 +24,7 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
               ],
               toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
           });
-  </script>
+  </script>  -->
 
 
 <div class="content">

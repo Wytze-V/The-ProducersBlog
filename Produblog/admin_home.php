@@ -5,7 +5,7 @@ $con = getDBConnection();
 
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 					
-				$query = "SELECT * FROM users";
+				$query = "SELECT * FROM users ORDER BY date";
 				$query_run = $con->query($query);
 			
 
