@@ -12,6 +12,7 @@
                 <div class='form'>
                     <form class='register-form' method='POST' action='action/ac_user.php'>
                         <div class='caption loginText'>
+							<input type='hidden' name='id' value='".$gebruiker->idUsers."' >
                             <label>Gebruikersnaam</label>
                             <input class='form__field' name='username' value='".$gebruiker->username."' >
                             </br>
@@ -19,7 +20,12 @@
                             <input class='form__field' name='email' value='".$gebruiker->email."'>
                             </br>
                             <label>Usertype</label>
-                            <input class='form__field' name='usertype' value='".$gebruiker->usertype."'>
+							<select class='form__field' name='usertype' value='".$gebruiker->usertype."'>
+								<option value='gebruiker'>gebruiker</option>
+								<option value='producer'>producer</option>
+								<option value='admin'>admin</option>
+							</select>
+							</br>
                             </br>
                             <input class='insert_btn' type='submit' value='Wijzig'  name='UpdateA'>
                         </div>

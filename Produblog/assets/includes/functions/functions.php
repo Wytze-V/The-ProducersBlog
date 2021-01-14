@@ -9,11 +9,11 @@ function insertUser($username,$password,$usertype,$email,$date){
 	$stmt->execute(array($username,$password,$usertype,$email,$date));
 	
 }
-function updateUser($username,$email,$nummer,$id){
+function updateUser($username,$email,$usertype, $date,$id){
 	$con = getDBConnection();
-	$sql = "UPDATE users SET username = ?, email= ? WHERE  idUsers=? ";
+	$sql = "UPDATE users SET username = ?, email= ?, usertype= ?, date= ? WHERE  idUsers=? ";
 	$stmt = $con->prepare($sql);
-	$stmt->execute(array($username,$email,$id));
+	$stmt->execute(array($username,$email,$usertype,$date,$id));
 }
 
 // hier wordt een gebruiker opgehaald uit de database
@@ -42,6 +42,13 @@ array_push($input_parameters , $id);
 $stmt = $con->prepare($sql);
 $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+}
+
+function updateUserA($username,$email,$usertype,$date,$id){
+	$con = getDBConnection();
+	$sql = "UPDATE users SET username = ?, email= ?, usertype= ?, date= ? WHERE  idUsers=? ";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($username,$email,$usertype,$date,$id));
 }
 
 // Hier wordt een Post in de database aangemaakt

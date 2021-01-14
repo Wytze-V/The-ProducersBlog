@@ -9,7 +9,6 @@ require_once('assets/includes/include.php');
                 <div class='form'>
                     <form class='register-form' method='POST' action='action/ac_user.php'>
                         <div class='caption loginText'>
-						    <input class='form__field' name='id' value='".$gebruiker->idUsers."' >
                             <label>Gebruikersnaam</label>
                             <input class='form__field' name='username' value='".$gebruiker->username."' >
                             </br>
