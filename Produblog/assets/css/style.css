@@ -19,6 +19,12 @@ body {
   padding: 8% 0 0;
   margin: auto;
 }
+
+.mijnaccount-page {
+  width: 360px;
+  padding: 1% 0 0;
+  margin: auto;
+}
 .form {
   position: relative;
   z-index: 1;
@@ -190,6 +196,12 @@ body {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+.font{
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
 }
 
 

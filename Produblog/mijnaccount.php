@@ -3,7 +3,7 @@ require_once('assets/includes/include.php');
     // hier wordt het profiel van de ingelogde gebruiker getoont
     if(isset($_SESSION['email'])){  
     $gebruiker = getProfile($_SESSION['idUsers']);  
-        echo"<div class='login-page'>
+        echo"<div class='mijnaccount-page'>
                 <h3 class='font' >Profiel van ".$gebruiker->username."</h3>
                 <hr class='hr'>
                 <div class='form'>
