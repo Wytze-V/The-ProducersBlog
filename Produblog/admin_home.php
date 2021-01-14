@@ -7,7 +7,6 @@ $con = getDBConnection();
 					
 				$query = "SELECT * FROM users ORDER BY date";
 				$query_run = $con->query($query);
-			
 
 			if($query_run){
 				
@@ -37,7 +36,7 @@ $con = getDBConnection();
 							<th> '.$row->email.' </th>
 							<th> '.$row->usertype.' </th>
 							<th>
-							<a href="edit.php" class="edit_btn" >Edit</a>
+							<a href="edituser.php?id='.$row->idUsers.'" class="edit_btn" >Edit</a>
 							</th>
 							<th></th>
 						</tr>

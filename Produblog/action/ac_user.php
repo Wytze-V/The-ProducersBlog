@@ -34,8 +34,18 @@ require_once('../assets/includes/include.php');
 		$email = ($_POST['email']);
 		$usertype = ($_SESSION['usertype']);
 		$id = ($_SESSION['idUsers']);
+		$date = date('Y-m-d H:i:s');
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		updateUser($username,$email,$usertype,$id);
-		header("location: ../mijnaccount.php");
-	}
+		updateUser($username,$email,$usertype,$id, $date);
+		header("location: ../admin_home.php");
+		}elseif(isset($_POST['UpdateA'])){
+		$username = ($_POST['username']);
+		$email = ($_POST['email']);
+		$usertype = ($_POST['usertype']);
+		$id = ($_GET['id']);
+		$date = date('Y-m-d H:i:s');
+	//	$id = ($_SESSION['idUsers']);
+		// dit is de functie en die wordt uit het bestand functions.php gehaald
+		updateUserA($username,$email,$usertype,$id,$date);
+		}
 ?>
