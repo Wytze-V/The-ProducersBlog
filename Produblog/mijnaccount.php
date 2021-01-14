@@ -7,7 +7,7 @@ require_once('assets/includes/include.php');
                 <h3 class='font' >Profiel van ".$gebruiker->username."</h3>
                 <hr class='hr'>
                 <div class='form'>
-                    <form class='register-form' method='POST' action='action/ac_user.php'>
+                    <form class='register-form' method='POST' action='ac_user.php'>
                         <div class='caption loginText'>
                             <label>Gebruikersnaam</label>
                             <input class='form__field' name='username' value='".$gebruiker->username."' >

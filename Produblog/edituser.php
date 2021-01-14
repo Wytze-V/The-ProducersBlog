@@ -1,7 +1,6 @@
 <?php
  require_once('assets/includes/include.php');
  $id = $_GET["id"];
- print_r($_GET);
 
 	// hier wordt het profiel van de ingelogde gebruiker getoont
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
@@ -10,7 +9,7 @@
                 <h3 class='font' >Profiel van ".$gebruiker->username."</h3>
                 <hr class='hr'>
                 <div class='form'>
-                    <form class='register-form' method='POST' action='action/ac_user.php'>
+                    <form class='register-form' method='POST' action='ac_user.php'>
                         <div class='caption loginText'>
 							<input type='hidden' name='id' value='".$gebruiker->idUsers."' >
                             <label>Gebruikersnaam</label>

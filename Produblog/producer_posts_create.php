@@ -32,7 +32,7 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
     <h2>Add New Article</h2>
 
 
- <form action="action/ac_post.php" method="post">
+ <form action="ac_post.php" method="post">
 
         <h4><label>Article Title</label><br>
         <input type="text" name="postname" style="width:100%;height:40px" value="<?php if(isset($error)){ echo $_POST['postname'];}?>"></h4>
