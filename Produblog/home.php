@@ -21,5 +21,6 @@ $con = getDBConnection();
 			Welkom ".$result['username']."		
 			</div>
 			";
+			
 		}
 ?>
