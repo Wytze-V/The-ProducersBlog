@@ -4,7 +4,7 @@ require_once('assets/includes/include.php');
 
 $con = getDBConnection();
 
-if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
+if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
 	
 }else{
 	header('location: home.php');
@@ -43,8 +43,11 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
         <h4><label>Long Description(Body Content)</label><br>
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
-       
-        <input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
+		<?php adminpost() ?>
+		
+		
+		
+		<input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
 
 
     </form>

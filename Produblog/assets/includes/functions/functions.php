@@ -93,5 +93,16 @@ function deletePost($id){
 	$stmt->execute(array($id));
 }
 
+function adminpost(){
+	if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+		echo'
+		<div>
+        <input type="checkbox" id="Mainpost" name="Mainpost" value="1">
+		<label for="Mainpost">Posten als hoofd article</label><br>
+        </div>';
+	}
+		
+}
+
 
 ?>
