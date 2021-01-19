@@ -65,7 +65,7 @@ function insertPost($postname,$postcontent,$idUsers,$date){
     
 ));
 }
-// hier wordt een gebruiker opgehaald uit de database
+// hier wordt een post opgehaald uit de database
 function getPost($id = null){
 $input_parameters = array();
 $con = getDBConnection();
@@ -91,6 +91,18 @@ function deletePost($id){
 	$sql = "DELETE FROM post WHERE idPost=?";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($id));
+}
+
+// hier wordt een gebruiker opgehaald uit de database
+function getProducer($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM users WHERE usertype='producer'";
+array_push($input_parameters , $id);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
 function adminpost(){

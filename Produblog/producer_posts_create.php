@@ -44,10 +44,8 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
 		<?php adminpost() ?>
-		
-		
-		
-		<input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
+       
+        <input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
 
 
     </form>

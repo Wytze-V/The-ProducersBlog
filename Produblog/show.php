@@ -3,7 +3,7 @@
 $con = getDBConnection();
 $id = $_GET["id"];
 
-	if(isset($_SESSION['usertype'])){
+	if(isset($_SESSION['idUsers'])){
 		$post = getPost($id);
 		//if post does not exists redirect user.
 		if($post->idPost == null){

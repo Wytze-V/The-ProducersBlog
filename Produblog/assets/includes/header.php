@@ -55,7 +55,7 @@
 			  echo"
 					</ul>
 				  </li>
-				  <li><a href='#'>Page 2</a></li>
+				  <li><a href='produceroverzicht.php'>Producers overzicht</a></li>
 				</ul>
 					<ul class='nav navbar-nav navbar-right'>
 						<li><a href='mijnaccount.php'><span class='glyphicon glyphicon-user'></span> Mijn Account</a></li>
