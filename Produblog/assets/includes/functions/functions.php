@@ -55,7 +55,7 @@ function updateUserA($username,$email,$usertype,$date,$id){
 function insertPost($postname,$postcontent,$idUsers,$date){
 	$con = getDBConnection();
 	$sql = "INSERT INTO post
-  (postname, postcontent, idUsers, date) VALUES (:postname, :postcontent, :idUsers, :date)"; 
+  (postname, postcontent, idUsers, datum) VALUES (:postname, :postcontent, :idUsers, :date)"; 
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array(
     ':postname' => $postname,
@@ -71,7 +71,7 @@ $input_parameters = array();
 $con = getDBConnection();
 $sql = "SELECT * FROM post";
 if($id != null ){
-$sql .= " WHERE idPost=? ";
+$sql .= " WHERE idPost=? ORDER BY idPost DESC ";
 array_push($input_parameters , $id);
 }
 $stmt = $con->prepare($sql);
@@ -81,7 +81,7 @@ return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 
 function updatePost($postname,$postcontent,$date,$idPost){
 	$con = getDBConnection();
-	$sql = "UPDATE post SET postname = ?, postcontent= ?,  date =? WHERE  idPost=? ";
+	$sql = "UPDATE post SET postname = ?, postcontent= ?,  datum =? WHERE  idPost=? ";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($postname,$postcontent,$date,$idPost));
 }

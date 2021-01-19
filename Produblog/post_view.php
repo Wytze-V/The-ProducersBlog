@@ -7,30 +7,38 @@ $con = getDBConnection();
 $posts = getPost();
 
 
-
 if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
 
 	}
 	else{
 		foreach($posts as $post){
 		  echo"
-		  <div class='posts-page' >
-		  <hr class='hr'>
-			<div class='form'>
-			  <form class='posts-form'>
-				<div class-'caption loginText'>
-					<label>post naam</label>
-					<input class='form__field' name='username' value='".$post->postname."' readonly>
-					</br>
-					<label>post content</label>
-					<input class='form__field' name='email' value='".$post->postcontent."' readonly>
-					</br>
-				</div>
-			  </form>
+		  
+		  <div class='container2'>
+			<div class='content2'>
+						
+					<div>
+					
+					<h1><a href='show.php?id=".$post->idPost."'>".$post->postname."</a></h1>
+					<hr>
+					
+					
+					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
+					<hr>
+					
+					<p>".$post->postcontent."</p>
+					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Read More</a></button></p>
+
+					
+					</div>              
+
 			</div>
-		  </div>";
+		  </div>
+		  
+		  ";
 		}
 	}
+
 
 ?>		
 
