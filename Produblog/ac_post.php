@@ -41,7 +41,13 @@ require_once('assets/includes/include.php');
 		$id = ($_POST['id']);
 		
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		updateUser($postname,$postcontent,$usertype,$idu,$id);
-		header("location: ../mijnaccount.php");
+		updatePost($postname,$postcontent,$usertype,$idu,$id);
+		header("location: producer_posts.php");
+		
+		}elseif(isset($_POST['Delete'])){
+		$id = $_GET['id'];
+		deletePost($id);
+		header("location: ./post_view.php");
 	}
 ?>
+

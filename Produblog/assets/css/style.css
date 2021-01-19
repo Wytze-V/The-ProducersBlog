@@ -1,8 +1,5 @@
-* { margin: 0px; padding: 0px; }
-body {
-	font-size: 120%;
-	background: #F8F8FF;
-}
+* { 
+margin: 0px; padding: 0px; }
 .header {
 	width: 40%;
 	margin: 50px auto 0px;
@@ -14,10 +11,23 @@ body {
 	border-radius: 10px 10px 0px 0px;
 	padding: 20px;
 }
+body {
+	background-image: url("../assets/images/produbg.jpg");
+	font-size: 120%;
+	background: #F8F8FF;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
   margin: auto;
+}
+
+.posts-page {
+  display: inline-block;
+  width: 33%;
+  padding: 0.1% 0 0;
+  margin: 1px;
 }
 
 .mijnaccount-page {

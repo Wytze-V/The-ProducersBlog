@@ -21,6 +21,7 @@ $con = getDBConnection();
 			Welkom ".$result['username']."		
 			</div>
 			";
-			
 		}
 ?>
+
+<?php include_once('assets/includes/footer.php'); ?>

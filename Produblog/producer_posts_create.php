@@ -52,3 +52,5 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
 </div>
 
 </div>
+
+<?php include_once('assets/includes/footer.php'); ?>

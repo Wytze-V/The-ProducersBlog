@@ -65,12 +65,32 @@ function insertPost($postname,$postcontent,$idUsers,$date){
     
 ));
 }
+// hier wordt een gebruiker opgehaald uit de database
+function getPost($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post";
+if($id != null ){
+$sql .= " WHERE idPost=? ";
+array_push($input_parameters , $id);
+}
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+}
 
 function updatePost($postname,$postcontent,$date,$idPost){
 	$con = getDBConnection();
 	$sql = "UPDATE post SET postname = ?, postcontent= ?,  date =? WHERE  idPost=? ";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($postname,$postcontent,$date,$idPost));
+}
+// hier wordt de geselecteerde tosti verwijderd uit de database
+function deletePost($id){
+	$con = getDbConnection();
+	$sql = "DELETE FROM post WHERE idPost=?";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($id));
 }
 
 

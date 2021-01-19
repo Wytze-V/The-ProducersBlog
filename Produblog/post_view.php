@@ -4,63 +4,34 @@ require_once('assets/includes/include.php');
 
 $con = getDBConnection();
 
-	if(isset($_SESSION['usertype'])){
-		
-		$query = "SELECT * FROM post ORDER BY date";
-		$query_run = $con->query($query);
-		
-		if($query_run){
-				
-				echo '
-				<table class="styled-table">
-					<thead>
-						<tr>
-							<th>Post ID</th>
-							<th>Poster ID</th>
-							<th>Post name</th>
-							<th>Content</th>
-							<th>File</th>
-							<th>Date</th>
-						</tr>
-					</thead>
-					
-				';
-				
-				//while($row = $query_run->fetch()){
-				foreach($query_run as $row){
-				
-				echo'
-				<tbody>
-						<tr class="active-row">
-							<th> '.$row->idPost.' </th>
-							<th> '.$row->idUsers.' </th>
-							<th> '.$row->postname.' </th>
-							<th> '.$row->postcontent.' </th>
-							<th> '.$row->File_ops.' </th>
-							<th> '.$row->date.' </th>
-							
-							
-							<th></th>
-						</tr>
-						
-				</tbody>
-						
-					
-				
-			
-	
-			';
-				}
-				echo'</table>';
-			}
-
-			}else{
-	header('location: home.php');
-}
+$posts = getPost();
 
 
-	
 
-?>
+if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
+
+	}
+	else{
+		foreach($posts as $post){
+		  echo"
+		  <div class='posts-page' >
+		  <hr class='hr'>
+			<div class='form'>
+			  <form class='posts-form'>
+				<div class-'caption loginText'>
+					<label>post naam</label>
+					<input class='form__field' name='username' value='".$post->postname."' readonly>
+					</br>
+					<label>post content</label>
+					<input class='form__field' name='email' value='".$post->postcontent."' readonly>
+					</br>
+				</div>
+			  </form>
+			</div>
+		  </div>";
+		}
+	}
+
+?>		
 
 <?php include_once('assets/includes/footer.php'); ?>

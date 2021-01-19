@@ -7,3 +7,5 @@ $con = getDBConnection();
 
 
 ?>
+
+<?php include_once('assets/includes/footer.php'); ?>
