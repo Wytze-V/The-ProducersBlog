@@ -25,6 +25,9 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 	// als er een resultaat is en het wachtwoord matched, sla dan de sessie op
 	if(count($result) > 0 && password_verify($_POST['password'], $result['password'])){
 		$_SESSION['idUsers'] = $result['idUsers'];
+		$_SESSION['usertype'] = $result['usertype'];
+		$_SESSION['username'] = $result['username'];
+		$_SESSION['email'] = $result['email'];
 		session_start();
 		header("location: home.php");
 	} else {
