@@ -79,6 +79,21 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
+// hier wordt een post opgehaald uit de database
+function getPostPro($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post";
+if($id != null ){
+$sql .= " WHERE idPost=?";
+array_push($input_parameters , $id);
+}
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+}
+
+
 function updatePost($postname,$postcontent,$date,$idPost){
 	$con = getDBConnection();
 	$sql = "UPDATE post SET postname = ?, postcontent= ?,  datum =? WHERE  idPost=? ";

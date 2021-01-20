@@ -2,15 +2,14 @@
 
 require_once('assets/includes/include.php');
 
-$con = getDBConnection();
+$id = $_GET["id"];
+print_r($_GET);
 
-$posts = getPost();
 
 
-if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
-
-	}
-	else{
+if(isset($_SESSION['usertype'])){
+	$posts = getPostPro();
+	
 		foreach($posts as $post){
 		  echo"
 		  
@@ -37,7 +36,7 @@ if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'producer'){
 		  
 		  ";
 		}
-	}
+}
 
 
 ?>		
