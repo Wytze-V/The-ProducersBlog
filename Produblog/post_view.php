@@ -8,7 +8,7 @@ print_r($_GET);
 
 
 if(isset($_SESSION['usertype'])){
-	$posts = getPostPro();
+	$posts = getPost();
 	
 		foreach($posts as $post){
 		  echo"

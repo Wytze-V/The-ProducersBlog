@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 * { 
 margin: 0px; padding: 0px; }
 .header {
@@ -14,7 +16,16 @@ margin: 0px; padding: 0px; }
 body {
 	background-image: url("../assets/images/produbg.jpg");
 	font-size: 120%;
-	background: #F8F8FF;
+	/*background: #F8F8FF;*/
+  background: rgb(222,73,109);
+  background: -moz-linear-gradient(-45deg, rgba(222,73,109,1) 0%, rgba(171,73,222,1) 100%);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(222,73,109,1)), color-stop(100%,rgba(171,73,222,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(222,73,109,1) 0%,rgba(171,73,222,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(222,73,109,1) 0%,rgba(171,73,222,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(222,73,109,1) 0%,rgba(171,73,222,1) 100%);
+  background: linear-gradient(135deg, rgba(222,73,109,1) 0%,rgba(171,73,222,1) 100%);  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .login-page {
@@ -28,6 +39,8 @@ body {
   padding: 1% 0 0;
   margin: auto;
 }
+
+
 .form {
   position: relative;
   z-index: 1;
@@ -77,11 +90,20 @@ body {
 }
 
 .container2{
-   width: 100%;
+	width: 98%;
     background-color: #FEFEFE;
-    margin: 0 auto;
+    margin: 5px auto;
     overflow: hidden;
 }
+
+.container3{
+	display: inline-block;
+    width: 33%;
+    background-color: #FEFEFE;
+    margin: auto;
+    overflow: hidden;
+}
+
 .content2{ 
  padding: 10px 100px;
     width: 60%;
@@ -151,6 +173,7 @@ color: #FEFEFE;
   width: 50%;
   border: 3px solid black;
   padding: 10px;
+  background: #FFFFFF;
 
 }
 
@@ -163,6 +186,7 @@ color: #FEFEFE;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 	margin-left: auto;
 	margin-right: auto;
+	background: #FFFFFF;
 }
 
 .styled-table thead tr {
