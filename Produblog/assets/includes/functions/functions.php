@@ -52,16 +52,17 @@ function updateUserA($username,$email,$usertype,$date,$id){
 }
 
 // Hier wordt een Post in de database aangemaakt
-function insertPost($postname,$postcontent,$idUsers,$date){
+function insertPost($postname,$postcontent,$idUsers,$date,$mainpost){
 	$con = getDBConnection();
 	$sql = "INSERT INTO post
-  (postname, postcontent, idUsers, datum) VALUES (:postname, :postcontent, :idUsers, :date)"; 
+  (postname, postcontent, idUsers, datum, admin_post) VALUES (:postname, :postcontent, :idUsers, :date, :mainpost)"; 
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array(
     ':postname' => $postname,
     ':postcontent' => $postcontent,
 	':idUsers' => $_SESSION['idUsers'],
     ':date' => date('Y-m-d H:i:s'),
+	':mainpost' => $_POST['mainpost'],
     
 ));
 }
@@ -94,6 +95,17 @@ function deletePost($id){
 	$stmt->execute(array($id));
 }
 
+function getAdminPost($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post WHERE admin_post='1'";
+array_push($input_parameters , $id);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+}
+
 // hier wordt een gebruiker opgehaald uit de database
 function getProducer($id = null){
 $input_parameters = array();
@@ -106,16 +118,31 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
-function adminpost(){
-	if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
-		echo'
-		<div>
-        <input type="checkbox" id="Mainpost" name="Mainpost" value="1">
-		<label for="Mainpost">Posten als hoofd article</label><br>
-        </div>';
-	}
-		
+// Hier wordt een comment in de database aangemaakt
+function insertComment($postid,$userid,$username,$comment,$datum){
+	$con = getDBConnection();
+	$sql = "INSERT INTO comment
+  (idPost,idUsers,username,comment,datum)
+   VALUES (?,?,?,?,?)";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($postid,$userid,$username,$comment,$datum));
+	
 }
+
+// hier wordt een post opgehaald uit de database
+function getComment($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM comment";
+if($id != null ){
+$sql .= " WHERE idPost=? ORDER BY idComment DESC ";
+array_push($input_parameters , $id);
+}
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
+}
+
 
 
 ?>

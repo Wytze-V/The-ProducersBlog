@@ -16,7 +16,7 @@ require_once('assets/includes/include.php');
           try {
 
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		insertPost($postname,$postcontent,$idUsers,$date);
+		insertPost($postname,$postcontent,$idUsers,$date,$mainpost);
 		header("location: ./post_view.php");
 			}catch(PDOException $e) {
                 echo $e->getMessage();

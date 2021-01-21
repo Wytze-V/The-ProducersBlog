@@ -11,20 +11,6 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 }
 ?>
 <div class="postcre">
-<!-- On page head area--> 
- <!--   <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-    <script>
-          tinymce.init({
-             mode : "specific_textareas",
-    editor_selector : "mceEditor",
-              plugins: [
-                  "advlist autolink lists link image charmap print preview anchor",
-                  "searchreplace visualblocks code fullscreen",
-                  "insertdatetime media table contextmenu paste"
-              ],
-              toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-          });
-  </script>  -->
 
 
 <div class="content">
@@ -43,8 +29,15 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
         <h4><label>Long Description(Body Content)</label><br>
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
-		<?php adminpost() ?>
-       
+		<?php
+		if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+		echo'
+        <input type="checkbox" name="mainpost" value="1" >
+		<label for="Mainpost">Posten als hoofd article</label><br>
+		';
+		}
+		?>
+		
         <input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
 
 
@@ -55,3 +48,4 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 </div>
 
 <?php include_once('assets/includes/footer.php'); ?>
+
