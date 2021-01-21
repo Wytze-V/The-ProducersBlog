@@ -2,9 +2,18 @@
 
 require_once('assets/includes/include.php');
 
-$id = $_GET["id"];
+$id = $_SESSION["idUsers"];
 
-if(isset($_SESSION['usertype'])){
+if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
+	
+			echo "
+			<div class='welkom-home'>
+			Welkom ".$_SESSION['username']."
+			<br>			
+			Hier kan je de posts bewerken of verwijderen.
+			</div>
+			";
+
 	$posts = getPost();
 	
 		foreach($posts as $post){

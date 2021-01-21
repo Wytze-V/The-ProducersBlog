@@ -95,6 +95,7 @@ body {
     background-color: #FEFEFE;
     margin: 5px auto;
     overflow: hidden;
+	border: 3px solid black;
 }
 
 .container3{
@@ -103,6 +104,7 @@ body {
     background-color: #FEFEFE;
     margin: auto;
     overflow: hidden;
+	border: 3px solid black;
 }
 
 .content2{ 
@@ -175,6 +177,8 @@ color: #FEFEFE;
   border: 3px solid black;
   padding: 10px;
   background: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
 
 }
 
