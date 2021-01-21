@@ -52,16 +52,18 @@ function updateUserA($username,$email,$usertype,$date,$id){
 }
 
 // Hier wordt een Post in de database aangemaakt
-function insertPost($postname,$postcontent,$idUsers,$date){
+function insertPost($postname,$postcontent,$idUsers,$date,$mainpost){
+	
 	$con = getDBConnection();
 	$sql = "INSERT INTO post
-  (postname, postcontent, idUsers, datum) VALUES (:postname, :postcontent, :idUsers, :date)"; 
+  (postname, postcontent, idUsers, datum, admin_post) VALUES (:postname, :postcontent, :idUsers, :date, :mainpost)"; 
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array(
     ':postname' => $postname,
     ':postcontent' => $postcontent,
 	':idUsers' => $_SESSION['idUsers'],
     ':date' => date('Y-m-d H:i:s'),
+	':mainpost' => $_POST['mainpost'],
     
 ));
 }
@@ -115,6 +117,17 @@ function adminpost(){
         </div>';
 	}
 		
+}
+
+function getAdminPost($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post WHERE admin_post='1'";
+array_push($input_parameters , $id);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
 

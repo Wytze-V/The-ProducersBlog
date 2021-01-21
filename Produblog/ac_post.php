@@ -5,7 +5,8 @@ require_once('assets/includes/include.php');
 
         //collect form data
         extract($_POST);
-
+		
+		
         //very basic validations
         if($postname ==''){
             $error[] = 'Please enter the title.';
@@ -14,9 +15,13 @@ require_once('assets/includes/include.php');
         }if(!isset($error)){
 
           try {
-
+		
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		insertPost($postname,$postcontent,$idUsers,$date);
+		//$date = date('Y-m-d H:i:s');
+		//$idUsers = $_SESSION['idUsers'];
+		
+		insertPost($postname,$postcontent,$idUsers,$date,$mainpost);
+		  
 		header("location: ./post_view.php");
 			}catch(PDOException $e) {
                 echo $e->getMessage();

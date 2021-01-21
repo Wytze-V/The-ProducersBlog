@@ -43,8 +43,15 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
         <h4><label>Long Description(Body Content)</label><br>
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         
-		<?php adminpost() ?>
-       
+		<?php
+		if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+		echo'
+        <input type="checkbox" name="mainpost" value="1" >
+		<label for="Mainpost">Posten als hoofd article</label><br>
+		';
+		}
+		?>
+		
         <input class= 'insert_btn' type='submit' value='Sla post op!' name='Insert'>
 
 
@@ -55,3 +62,13 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 </div>
 
 <?php include_once('assets/includes/footer.php'); ?>
+
+<?php
+		/*if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+		echo'
+		
+        <input type="checkbox" name="mainpost" value="1" >
+		<label for="Mainpost">Posten als hoofd article</label><br>
+        ';
+			} */
+?>
