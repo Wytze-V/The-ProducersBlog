@@ -41,6 +41,12 @@ body {
   margin: auto;
 }
 
+.delete-page {
+  width: 360px;
+  padding: 1% 0 0;
+  margin: auto;
+}
+
 
 .form {
   position: relative;
@@ -279,6 +285,14 @@ color: #FEFEFE;
     color: white;
     border-radius: 3px;
 }
+
+.delete_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    background: #FF2828;
+    color: white;
+    border-radius: 3px;
+}
 .postcre {
   position: relative;
   z-index: 1;
@@ -304,11 +318,42 @@ color: #FEFEFE;
   cursor: pointer;
 }
 
+
+.form .delete_btn{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FF2828;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
 .postcre .insert_btn{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.postcre .delete_btn{
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FF2828;
   width: 100%;
   border: 0;
   padding: 15px;

@@ -45,9 +45,9 @@ var_dump($_POST);
 		header("location: ./mijnposts.php");
 		
 		}elseif(isset($_POST['Delete'])){
-		$id = $_GET['id'];
+		$id = ($_POST['id']);
 		deletePost($id);
-		header("location: ./post_view.php");
+		header("location: ./mijnposts.php");
 	}
 	
 	

@@ -51,5 +51,9 @@ require_once('assets/includes/include.php');
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
 		updateUserA($username,$email,$usertype,$date, $id);
 		header("location: admin_home.php");
-		}
+		}elseif(isset($_POST['Delete'])){
+		$id = ($_POST['id']);
+		deleteuserA($id);
+		header("location: ./admin_home.php");
+	}
 ?>

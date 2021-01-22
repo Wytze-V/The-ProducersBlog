@@ -36,9 +36,11 @@ $con = getDBConnection();
 							<th> '.$row->email.' </th>
 							<th> '.$row->usertype.' </th>
 							<th>
-							<a href="edituser.php?id='.$row->idUsers.'" class="edit_btn" >Edit</a>
+								<a href="edituser.php?id='.$row->idUsers.'" class="edit_btn" >Bewerk</a>					
 							</th>
-							<th></th>
+							<th>
+								<a href="deleteuser.php?id='.$row->idUsers.'" class="delete_btn" >Verwijder</a>
+							</th>
 						</tr>
 						
 				</tbody>

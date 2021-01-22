@@ -34,7 +34,7 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 					<p>".$post->postcontent."</p>				
 					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Lees Meer</a></button></p>
 					<p><button class='updatebtn'><a href='editpost.php?id=".$post->idPost."'>Bewerk</a></button></p>
-					<p><button class='deletebtn'><a href='show.php?id=".$post->idPost."'>Verwijder</a></button></p>
+					<p><button class='deletebtn'><a href='deletepost.php?id=".$post->idPost."'>Verwijder</a></button></p>
 					
 					</div>              
 

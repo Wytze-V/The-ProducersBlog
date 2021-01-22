@@ -51,6 +51,14 @@ function updateUserA($username,$email,$usertype,$date,$id){
 	$stmt->execute(array($username,$email,$usertype,$date,$id));
 }
 
+// hier wordt de geselecteerde user verwijderd uit de database
+function deleteUserA($id){
+	$con = getDbConnection();
+	$sql = "DELETE FROM users WHERE idUsers=?";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($id));
+}
+
 // Hier wordt een Post in de database aangemaakt
 function insertPost($postname,$postcontent,$idUsers,$date,$mainpost){
 	$con = getDBConnection();
@@ -103,9 +111,7 @@ function updatePost($postname,$postcontent,$id){
 	$stmt->execute(array($postname,$postcontent,$id));
 }
 
-
-
-// hier wordt de geselecteerde tosti verwijderd uit de database
+// hier wordt de geselecteerde post verwijderd uit de database
 function deletePost($id){
 	$con = getDbConnection();
 	$sql = "DELETE FROM post WHERE idPost=?";
