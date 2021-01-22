@@ -43,7 +43,7 @@ $id = $_GET["id"];
 									</div>
 								</div>
 								<input type='submit' name='postcomment' value='comment' class='btn btn-primary'>
-								<a href='home.php' class='btn btn-default'>Go home</a>
+								<a href='home.php' class='btn btn-default'>Ga terug naar home</a>
 							</form>
 				
 						</div>
