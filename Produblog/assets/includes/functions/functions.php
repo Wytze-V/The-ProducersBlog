@@ -96,12 +96,15 @@ return $row != null ? $stmt->fetch() : $stmt->fetchAll();
 
 }
 
-function updatePost($postname,$postcontent,$date,$idPost){
+function updatePost($postname,$postcontent,$id){
 	$con = getDBConnection();
-	$sql = "UPDATE post SET postname = ?, postcontent= ?,  datum =? WHERE  idPost=? ";
+	$sql = "UPDATE post SET postname = ?, postcontent= ? WHERE  idPost='$id' ";
 	$stmt = $con->prepare($sql);
-	$stmt->execute(array($postname,$postcontent,$date,$idPost));
+	$stmt->execute(array($postname,$postcontent,$id));
 }
+
+
+
 // hier wordt de geselecteerde tosti verwijderd uit de database
 function deletePost($id){
 	$con = getDbConnection();

@@ -1,5 +1,6 @@
 <?php
 require_once('assets/includes/include.php');
+var_dump($_POST);
 	// hier wordt de input meegenomen naar de functie
     if(isset($_POST['Insert'])){
 
@@ -37,17 +38,19 @@ require_once('assets/includes/include.php');
 		}elseif(isset($_POST['Update'])){
 		$postname = ($_POST['postname']);
 		$postcontent = ($_POST['postcontent']);
-		$idu = $_SESSION['idUsers'];
 		$id = ($_POST['id']);
 		
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		updatePost($postname,$postcontent,$usertype,$idu,$id);
-		header("location: producer_posts.php");
+		updatePost($postname,$postcontent,$id);
+		header("location: ./mijnposts.php");
 		
 		}elseif(isset($_POST['Delete'])){
 		$id = $_GET['id'];
 		deletePost($id);
 		header("location: ./post_view.php");
 	}
+	
+	
 ?>
+
 

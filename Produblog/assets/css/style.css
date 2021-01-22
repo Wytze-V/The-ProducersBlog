@@ -91,7 +91,8 @@ body {
 }
 
 .container2{
-	width: 98%;
+	display: block;
+	width: 50%;
     background-color: #FEFEFE;
     margin: 5px auto;
     overflow: hidden;
@@ -120,6 +121,28 @@ body {
   
    .readbtn{ 
     transition: all linear 0.2s;
+    background: #008BFF;
+   
+    border: none;
+    font-size: 13px;
+    line-height: 22px;
+    border-radius: 0;
+    padding: 6px 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 2px;
+
+
+
+
+  color: white;
+  }
+  .readbtn a{
+text-decoration: none;
+color: #FEFEFE;
+   }
+  
+     .updatebtn{ 
+    transition: all linear 0.2s;
     background: #66ad44;
    
     border: none;
@@ -130,12 +153,40 @@ body {
     font-family: 'Montserrat', sans-serif;
     border-radius: 2px;
 
+
+	
+
   color: white;
   }
-  .readbtn a{
+  .updatebtn a{
 text-decoration: none;
 color: #FEFEFE;
    }
+   
+      .deletebtn{ 
+    transition: all linear 0.2s;
+    background: #FF2828;
+   
+    border: none;
+    font-size: 13px;
+    line-height: 22px;
+    border-radius: 0;
+    padding: 6px 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 2px;
+
+
+
+
+  color: white;
+  }
+  .deletebtn a{
+text-decoration: none;
+color: #FEFEFE;
+   }
+   
+  
+  
   
 
 .container {

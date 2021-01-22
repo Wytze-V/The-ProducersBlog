@@ -47,7 +47,7 @@ $con = getDBConnection();
 			 ";
 				if(isset($_SESSION['idUsers'])){
 					echo "
-					<p><button class='readbtn'><a href='show.php?id=".$adminpost->idPost."'>Read More</a></button></p>
+					<p><button class='readbtn'><a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a></button></p>
 					";
 				}
 			echo"
