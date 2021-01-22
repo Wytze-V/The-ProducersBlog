@@ -80,6 +80,21 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
+function getUserPost($id){
+$row = null;
+
+
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post WHERE idUsers ='$id' ";
+
+array_push($input_parameters , $row);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $row != null ? $stmt->fetch() : $stmt->fetchAll();
+
+}
 
 function updatePost($postname,$postcontent,$date,$idPost){
 	$con = getDBConnection();
