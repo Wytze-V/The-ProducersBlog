@@ -5,7 +5,7 @@ require_once('assets/includes/include.php');
 $id = $_GET["id"];
 
 if(isset($_SESSION['usertype'])){
-	$posts = getUserPost($id);
+	$posts = getPost();
 	
 		foreach($posts as $post){
 		  echo"

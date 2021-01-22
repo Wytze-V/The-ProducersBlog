@@ -13,8 +13,8 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 			Hier kan je de posts bewerken of verwijderen.
 			</div>
 			";
-	
-	$posts = getUserPost($id);
+
+	$posts = getPost();
 	
 		foreach($posts as $post){
 		  echo"
