@@ -25,7 +25,7 @@ $id = $_GET["id"];
 					<hr>
 					
 					<p>".$post->postcontent."</p>
-					<p><button class='readbtn'><a href='post_view.php?id=".$post->idUsers."'>Go Back</a></button></p>
+					<p><button class='readbtn'><a href='post_view.php?id=".$post->idUsers."'>Ga Terug</a></button></p>
 
 					<div class='col-lg-3'>
 						<a href=''> Comment (0)</a>
