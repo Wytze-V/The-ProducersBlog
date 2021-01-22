@@ -18,7 +18,7 @@ var_dump($_POST);
 
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
 		insertPost($postname,$postcontent,$idUsers,$date,$mainpost);
-		header("location: ./post_view.php");
+		header("location: ./mijnposts.php");
 			}catch(PDOException $e) {
                 echo $e->getMessage();
             }
