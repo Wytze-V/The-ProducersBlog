@@ -49,8 +49,8 @@
 			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 				echo "  <li><a href='admin_home.php'>admin home</a></li> ";
 			  }
-			  if(isset($_SESSION['usertype'])){
-				echo "  <li><a href='post_view.php'>view posts</a></li> ";
+			  if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
+				echo "  <li><a href='mijnposts.php?id=".$_SESSION['idUsers']."'>mijn posts</a></li> ";
 			  }
 			  echo"
 					</ul>

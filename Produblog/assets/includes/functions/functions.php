@@ -53,7 +53,6 @@ function updateUserA($username,$email,$usertype,$date,$id){
 
 // Hier wordt een Post in de database aangemaakt
 function insertPost($postname,$postcontent,$idUsers,$date,$mainpost){
-	
 	$con = getDBConnection();
 	$sql = "INSERT INTO post
   (postname, postcontent, idUsers, datum, admin_post) VALUES (:postname, :postcontent, :idUsers, :date, :mainpost)"; 
@@ -81,19 +80,48 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
+function getUserPost($id){
+$row = null;
 
-function updatePost($postname,$postcontent,$date,$idPost){
-	$con = getDBConnection();
-	$sql = "UPDATE post SET postname = ?, postcontent= ?,  datum =? WHERE  idPost=? ";
-	$stmt = $con->prepare($sql);
-	$stmt->execute(array($postname,$postcontent,$date,$idPost));
+
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post WHERE idUsers ='$id' ";
+
+array_push($input_parameters , $row);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $row != null ? $stmt->fetch() : $stmt->fetchAll();
+
 }
+
+function updatePost($postname,$postcontent,$id){
+	$con = getDBConnection();
+	$sql = "UPDATE post SET postname= ?, postcontent= ? WHERE  idPost= ? ";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($postname,$postcontent,$id));
+}
+
+
+
 // hier wordt de geselecteerde tosti verwijderd uit de database
 function deletePost($id){
 	$con = getDbConnection();
 	$sql = "DELETE FROM post WHERE idPost=?";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($id));
+}
+
+function getAdminPost($id = null){
+$input_parameters = array();
+$con = getDBConnection();
+$sql = "SELECT * FROM post WHERE admin_post='1'";
+array_push($input_parameters , $id);
+
+$stmt = $con->prepare($sql);
+$stmt->execute($input_parameters);
+return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
 // hier wordt een gebruiker opgehaald uit de database
@@ -108,27 +136,31 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
-function adminpost(){
-	if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
-		echo'
-		<div>
-        <input type="checkbox" id="Mainpost" name="Mainpost" value="1">
-		<label for="Mainpost">Posten als hoofd article</label><br>
-        </div>';
-	}
-		
+// Hier wordt een comment in de database aangemaakt
+function insertComment($postid,$userid,$username,$comment,$datum){
+	$con = getDBConnection();
+	$sql = "INSERT INTO comment
+  (idPost,idUsers,username,comment,datum)
+   VALUES (?,?,?,?,?)";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($postid,$userid,$username,$comment,$datum));
+	
 }
 
-function getAdminPost($id = null){
+// hier wordt een post opgehaald uit de database
+function getComment($id = null){
 $input_parameters = array();
 $con = getDBConnection();
-$sql = "SELECT * FROM post WHERE admin_post='1'";
+$sql = "SELECT * FROM comment";
+if($id != null ){
+$sql .= " WHERE idPost=? ORDER BY idComment DESC ";
 array_push($input_parameters , $id);
-
+}
 $stmt = $con->prepare($sql);
 $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
+
 
 
 ?>

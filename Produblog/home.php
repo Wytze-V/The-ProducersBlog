@@ -43,28 +43,13 @@ $con = getDBConnection();
 					<hr>
 					
 					<p>".$adminpost->postcontent."</p>
-					<p><button class='readbtn'><a href='post_view.php'>Go Back</a></button></p>
-
-					<div class='col-lg-3'>
-						<a href=''> Comment (0)</a>
-					</div>
-
-					<div class='row'>
-						<div class='col-lg-4'></div>
-						<div class='col-lg-6'>
-							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
-								<div class='form-group'>
-									<label class='col-lg-3 control-label'>Add Comment</label>
-									<div class='col-lg-9'>
-										<textarea class='form-control' rows='5' cols='10' name='comment' placeholde='Comment'></textarea>
-									</div>
-								</div>
-								<input type='submit' name='postcomment' value='Comment' class='btn btn-primary'>
-								<a href='home.php' class='btn btn-default'>Go home</a>
-							</form>
-				
-						</div>
-					</div>
+			 ";
+				if(isset($_SESSION['idUsers'])){
+					echo "
+					<p><button class='readbtn'><a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a></button></p>
+					";
+				}
+			echo"
 					
 					</div>              
 		

@@ -12,9 +12,9 @@ require_once('assets/includes/include.php');
 					
 					<div>
 					
-					<h1><a href='post_view.php?username=".$producer->username."'>".$producer->username."</a></h1>
+					<h1><a href='post_view.php?id=".$producer->idUsers."'>".$producer->username."</a></h1>
 					<hr>
-					<p><button class='readbtn'><a href='post_view.php?id=".$producer->idUsers."'>Go to page</a></button></p>
+					<p><button class='readbtn'><a href='post_view.php?id=".$producer->idUsers."'>Ga naar pagina</a></button></p>
 					<hr>
 					
 					</div>

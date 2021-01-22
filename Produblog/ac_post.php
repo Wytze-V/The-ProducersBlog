@@ -1,12 +1,12 @@
 <?php
 require_once('assets/includes/include.php');
+var_dump($_POST);
 	// hier wordt de input meegenomen naar de functie
     if(isset($_POST['Insert'])){
 
         //collect form data
         extract($_POST);
-		
-		
+
         //very basic validations
         if($postname ==''){
             $error[] = 'Please enter the title.';
@@ -15,14 +15,10 @@ require_once('assets/includes/include.php');
         }if(!isset($error)){
 
           try {
-		
+
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		//$date = date('Y-m-d H:i:s');
-		//$idUsers = $_SESSION['idUsers'];
-		
 		insertPost($postname,$postcontent,$idUsers,$date,$mainpost);
-		  
-		header("location: ./post_view.php");
+		header("location: ./mijnposts.php");
 			}catch(PDOException $e) {
                 echo $e->getMessage();
             }
@@ -42,17 +38,19 @@ require_once('assets/includes/include.php');
 		}elseif(isset($_POST['Update'])){
 		$postname = ($_POST['postname']);
 		$postcontent = ($_POST['postcontent']);
-		$idu = $_SESSION['idUsers'];
 		$id = ($_POST['id']);
 		
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
-		updatePost($postname,$postcontent,$usertype,$idu,$id);
-		header("location: producer_posts.php");
+		updatePost($postname,$postcontent,$id);
+		header("location: ./mijnposts.php");
 		
 		}elseif(isset($_POST['Delete'])){
 		$id = $_GET['id'];
 		deletePost($id);
 		header("location: ./post_view.php");
 	}
+	
+	
 ?>
+
 
