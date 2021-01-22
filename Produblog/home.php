@@ -19,7 +19,6 @@ $con = getDBConnection();
 			echo "
 			<div class='welkom-home'>
 			Welkom ".$result['username']."		
-			Hello world!
 			</div>
 			";
 			
