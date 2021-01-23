@@ -12,14 +12,14 @@ if(isset($_SESSION['idUsers'])){
 	<div class="login-page">
 		<div class="form">
 			<form class="register-form" action="ac_user.php" method="POST">
-				<input type="text" name="username" placeholder="username"/>
-				<input type="password" name="password" placeholder="password"/>
-				<input type="password" name="confirm-password" placeholder="confirm-password"/>
-				<input type="text" name="email" placeholder="email address"/>
+				<input type="text" name="username" placeholder="Gebruikers Naam"/>
+				<input type="password" name="password" placeholder="Wachtwoord"/>
+				<input type="password" name="confirm-password" placeholder="Herhaal Wachtwoord"/>
+				<input type="text" name="email" placeholder="Email"/>
 				<input type="hidden" name="usertype" value="gebruiker"/>
 				<input class= 'insert_btn' type='submit' value='Meld je aan!' name='Insert'>
-				<p class="">Already registered? <a href="login.php">Sign in</a></p>
-				<p class="">Go <a href="home.php">Home</a></p>
+				<p class="">Al geregistreerd? <a href="login.php">Klik hier om in te loggen</a></p>
+				<p class="">Ga <a href="home.php">Naar Home</a></p>
 			</form>
 		</div>
 	</div>

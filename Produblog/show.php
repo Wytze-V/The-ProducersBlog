@@ -21,29 +21,30 @@ $id = $_GET["id"];
 					<hr>
 					
 					
-					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
+					<p>Geplaatst op ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
 					<p>".$post->postcontent."</p>
 					<p><button class='readbtn'><a href='post_view.php?id=".$post->idUsers."'>Ga Terug</a></button></p>
 
-					<div class='col-lg-3'>
+		";
+					/*<div class='col-lg-3'>
 						<a href=''> Comment (0)</a>
-					</div>
-
+					</div>*/
+		echo"
+		<hr>
 					<div class='row'>
 						<div class='col-lg-4'></div>
 						<div class='col-lg-6'>
 							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
 							<input type='hidden' name='idPost' value='".$post->idPost."' >
 								<div class='form-group'>
-									<label class='col-lg-3 control-label'>Add Comment</label>
+									<label class='col-lg-3 control-label'>Reageren</label>
 									<div class='col-lg-9'>
-										<textarea class='form-control' rows='5' cols='10' name='comment' placeholde='comment'></textarea>
+										<textarea class='form-control' rows='5' cols='10' name='comment' placeholder='Plaats reactie'></textarea>
 									</div>
 								</div>
-								<input type='submit' name='postcomment' value='comment' class='btn btn-primary'>
-								<a href='home.php' class='btn btn-default'>Ga terug naar home</a>
+								<input type='submit' name='postcomment' value='Reageer' class='btn btn-primary'>
 							</form>
 				
 						</div>
@@ -52,8 +53,10 @@ $id = $_GET["id"];
 					<div class='row'>
 						<div class='col-lg-4'></div>
 						<div class='col-lg-6'>
-							<h1>All Comments</h1>
-					";
+						
+		<hr>
+							<h1>Alle Reacties</h1>
+		";
 							
 							$com_query = "SELECT * FROM comment WHERE idPost = '$id' ";
 							$com_result = $con->query($com_query);
@@ -67,7 +70,7 @@ $id = $_GET["id"];
 								echo'
 								<hr>
 									<p>'.$com->comment.'</p>
-									<p>Posted By: '.$com->username.'</p>
+									<p>Geplaatst Door: '.$com->username.'</p>
 								<hr>	
 									';					
 								}

@@ -24,8 +24,14 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 
 				<h4><label>Post Inhoud</label><br>
 				<textarea name='postcontent' id='textarea1' class='mceEditor' cols='120' rows='20'>".$post->postcontent."</textarea></h4>
-				
-				
+				";
+				if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+					echo'
+						<input type="checkbox" name="mainpost" value="1" >
+						<label for="Mainpost">Posten als hoofd article</label><br>
+					';
+				}
+				echo"
 				<input class= 'insert_btn' type='submit' value='Wijzig Post!' name='Update'>
 
 

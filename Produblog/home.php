@@ -39,7 +39,7 @@ $con = getDBConnection();
 					<hr>
 					
 					
-					<p>Posted on ".date('jS M Y', strtotime($adminpost->datum))."</p>
+					<p>Geplaatst op ".date('jS M Y', strtotime($adminpost->datum))."</p>
 					<hr>
 					
 					<p>".$adminpost->postcontent."</p>
@@ -48,6 +48,13 @@ $con = getDBConnection();
 					echo "
 					<p><button class='readbtn'><a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a></button></p>
 					";
+				}	
+				 if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+					echo "
+					<p><button class='updatebtn'><a href='editpost.php?id=".$adminpost->idPost."'>Bewerk</a></button></p>
+					<p><button class='deletebtn'><a href='deletepost.php?id=".$adminpost->idPost."'>Verwijder</a></button></p>
+					";
+				
 				}
 			echo"
 					

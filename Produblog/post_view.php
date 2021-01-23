@@ -19,11 +19,11 @@ if(isset($_SESSION['usertype'])){
 					<hr>
 					
 					
-					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
+					<p>Geplaatst op ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
 					<p>".$post->postcontent."</p>
-					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Read More</a></button></p>
+					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Lees Meer</a></button></p>
 
 					
 					</div>              

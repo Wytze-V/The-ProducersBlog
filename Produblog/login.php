@@ -41,11 +41,11 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 	<div class="login-page">
 		<div class="form">
 			<form class="login-form" action="" method="POST">
-				<input type="text" name="username" placeholder="username"/>
-				<input type="password" name="password" placeholder="password"/>
-				<button>Login</button>
-				<p class="">Not Registered? <a href="register.php">Create an acount</a></p>
-				<p class="">Login <a href="home.php">Home</a></p>
+				<input type="text" name="username" placeholder="Gebruikers Naam"/>
+				<input type="password" name="password" placeholder="Wachtwoord"/>
+				<button>Inloggen</button>
+				<p class="">Nog niet geregistreerd? <a href="register.php">Registreer Hier</a></p>
+				<p class="">Ga<a href="home.php"> Naar Home</a></p>
 			</form>
 		</div>
 	</div>

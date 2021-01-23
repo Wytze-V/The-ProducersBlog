@@ -38,28 +38,35 @@
 				</div>
 				<ul class='nav navbar-nav'>
 				  <li class='active'><a href='home.php'>Home</a></li>
-				  <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#'>Page 1 <span class='caret'></span></a>
-					<ul class='dropdown-menu'>
-					  <li><a href='#'>Page 1-1</a></li>
-					  <li><a href='#'>Page 1-2</a></li>
 			";
-			  if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer') or ($_SESSION['usertype'] == 'admin') )  ) {
-				echo "  <li><a href='producer_posts_create.php'>create post</a></li> ";
-			  }
-			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
-				echo "  <li><a href='admin_home.php'>admin home</a></li> ";
-			  }
-			  if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
-				echo "  <li><a href='mijnposts.php?id=".$_SESSION['idUsers']."'>mijn posts</a></li> ";
-			  }
-			  echo"
-					</ul>
+			if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
+				echo"  <li class='dropdown'><a class='dropdown-toggle' data-toggle='dropdown' href='#''>Post Opties<span class='caret'></span></a>
+					<ul class='dropdown-menu'>
+
+					  
+			
+				
+				  <li><a href='mijnposts.php?id=".$_SESSION['idUsers']."'>Mijn Posts</a></li> 
+			  
+		
+				  <li><a href='producer_posts_create.php'>Creër Post</a></li> 
+				  </ul>
 				  </li>
+				";
+			  }
+
+			  echo"
+
 				  <li><a href='produceroverzicht.php'>Producers overzicht</a></li>
+			";
+			  if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+				echo "  <li><a href='admin_home.php'>Admin Home</a></li> ";
+			  }
+			echo"
 				</ul>
 					<ul class='nav navbar-nav navbar-right'>
 						<li><a href='mijnaccount.php'><span class='glyphicon glyphicon-user'></span> Mijn Account</a></li>
-						<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout ".$result['username']."</a></li>
+						<li><a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Uitloggen ".$result['username']."</a></li>
 					</ul>	
 			</div>
 			";
@@ -74,8 +81,8 @@
 					</ul>
 			
 					<ul class='nav navbar-nav navbar-right'>
-						<li><a href='register.php'><span class='glyphicon glyphicon-user'></span> Sign Up</a></li>
-						<li><a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a></li>
+						<li><a href='register.php'><span class='glyphicon glyphicon-user'></span> Registreer</a></li>
+						<li><a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Inloggen</a></li>
 					</ul>
 				</div>
 			";
