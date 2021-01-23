@@ -167,6 +167,31 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
+function backbutton($lastpage, $post){
+	
+	if(isset($lastpage)){
+		
+		if($lastpage=="home"){
+			//go home
+			echo"'home.php' ";
+			}
+		elseif($lastpage=="mijnposts"){
+			//go to mijnposts
+			echo"'mijnposts.php?id=".$post->idUsers."' ";
+			}
+		elseif($lastpage=="postview"){
+			//go to post_view
+			echo"'post_view.php?id=".$post->idUsers."' ";
+			}
+						
+		}
+					
+	else{
+		//go home
+		echo" 'home.php' ";
+		
+	}
+}
 
 
 ?>

@@ -23,8 +23,11 @@ if(isset($_SESSION['usertype'])){
 					<hr>
 					
 					<p>".$post->postcontent."</p>
-					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Lees Meer</a></button></p>
-
+					
+					
+					<form action='show.php?id=".$post->idPost."' method='post'>
+					<p><button class='readbtn' type='submit' name='page' value='postview' >Lees Meer</button></p>
+					</form>
 					
 					</div>              
 

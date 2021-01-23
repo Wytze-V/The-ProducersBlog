@@ -31,8 +31,13 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
-					<p>".$post->postcontent."</p>				
-					<p><button class='readbtn'><a href='show.php?id=".$post->idPost."'>Lees Meer</a></button></p>
+					<p>".$post->postcontent."</p>		
+
+					
+					<form action='show.php?id=".$post->idPost."' method='post'>
+					<p><button class='readbtn' type='submit' name='page' value='mijnposts' >Lees Meer</button></p>
+					</form>
+					
 					<p><button class='updatebtn'><a href='editpost.php?id=".$post->idPost."'>Bewerk</a></button></p>
 					<p><button class='deletebtn'><a href='deletepost.php?id=".$post->idPost."'>Verwijder</a></button></p>
 					

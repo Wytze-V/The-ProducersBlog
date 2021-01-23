@@ -25,7 +25,8 @@ $con = getDBConnection();
 		}
 		//Admin posts
 		$adminposts = getAdminPost();
-		
+		//old action triggers for button
+		//<a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a>
 		foreach($adminposts as $adminpost){
 			
 			echo"
@@ -46,7 +47,11 @@ $con = getDBConnection();
 			 ";
 				if(isset($_SESSION['idUsers'])){
 					echo "
-					<p><button class='readbtn'><a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a></button></p>
+					<form action='show.php?id=".$adminpost->idPost."' method='post'>
+					
+					<p><button class='readbtn' type='submit' name='page' value='home' >Lees Meer</button></p>
+					
+					</form>
 					";
 				}	
 				 if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){

@@ -3,6 +3,23 @@
 $con = getDBConnection();
 $id = $_GET["id"];
 
+
+	
+if(isset($_POST["page"])){
+		$lastpage = $_POST["page"];
+	}
+else{
+	$lastpage = null;	
+}
+
+//debug stuff
+/*	
+var_dump($lastpage);
+if(isset($lastpage)){
+	echo" Lastpage set!";
+}
+*/
+
 	if(isset($_SESSION['idUsers'])){
 		$post = getPost($id);
 		//if post does not exists redirect user.
@@ -10,6 +27,17 @@ $id = $_GET["id"];
 			header('Location: ./');
 			exit;
 		}
+		//old code for comment, needs fixing, placed under "got back"
+		/*
+		<div class='col-lg-3'>
+			<a href=''> Comment (0)</a>
+		</div>
+		*/
+		
+		
+		//old code directing to post_view for button
+		//a href='post_view.php?id=".$post->idUsers."'
+		
 		echo"
 
 		<div class='container2'>
@@ -25,13 +53,13 @@ $id = $_GET["id"];
 					<hr>
 					
 					<p>".$post->postcontent."</p>
-					<p><button class='readbtn'><a href='post_view.php?id=".$post->idUsers."'>Ga Terug</a></button></p>
+					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
+					
+					
 
-		";
-					/*<div class='col-lg-3'>
-						<a href=''> Comment (0)</a>
-					</div>*/
-		echo"
+		
+					
+		
 		<hr>
 					<div class='row'>
 						<div class='col-lg-4'></div>
