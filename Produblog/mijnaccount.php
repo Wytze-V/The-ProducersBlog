@@ -1,7 +1,8 @@
 <?php
 require_once('assets/includes/include.php');
-    // hier wordt het profiel van de ingelogde gebruiker getoont
+// hier wordt het profiel van de ingelogde gebruiker getoont
     if(isset($_SESSION['email'])){  
+//hier definiëren wij dat variable gebruiker de functie getProfile moet uitvoeren met het meegegeven id
     $gebruiker = getProfile($_SESSION['idUsers']);  
         echo"<div class='mijnaccount-page'>
                 <h3 class='font' >Profiel van ".$gebruiker->username."</h3>

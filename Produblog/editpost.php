@@ -1,10 +1,12 @@
 <?php
  require_once('assets/includes/include.php');
+//Hier word het id van de post meegenomen van de vorige pagina
  $id = $_GET["id"];
  
- 
+//Hier word gecontroleerd of de gebruiker is ingelogd en of de gebruiker producer of admin is anders geen toegang
 if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
-	
+
+//hier definiëren wij dat variable post de functie getPost moet uitvoeren met het meegegeven id
 	$post = getPost($id);
 	echo"
 

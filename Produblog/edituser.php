@@ -1,9 +1,11 @@
 <?php
  require_once('assets/includes/include.php');
+ //Hier wordt het id van de gebruiker meegenomen van de vorige pagina naar deze pagina.
  $id = $_GET["id"];
 
-	// hier wordt het profiel van de ingelogde gebruiker getoont
+//Hier word gecontroleerd of de gebruiker is ingelogd en of de gebruiker admin is anders geen toegang
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
+	  //hier definiëren wij dat variable gebruiker de functie getProfileA moet uitvoeren met het meegegeven id
 		    $gebruiker = getProfileA($id);  
         echo"<div class='login-page'>
                 <h3 class='font' >Profiel van ".$gebruiker->username."</h3>

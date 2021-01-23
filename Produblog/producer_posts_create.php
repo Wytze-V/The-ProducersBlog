@@ -4,6 +4,7 @@ require_once('assets/includes/include.php');
 
 $con = getDBConnection();
 
+//Hier word gecontroleerd of de gebruiker is ingelogd en of de gebruiker producer of admin is anders geen toegang
 if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
 	
 }else{
@@ -15,7 +16,7 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 
 <div class="content">
  
-    <h2>Creër nieuw artikel</h2>
+    <h2>Creëer nieuw artikel</h2>
 
 
  <form action="ac_post.php" method="post">

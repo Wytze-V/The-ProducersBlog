@@ -1,13 +1,13 @@
 <?php
 require_once('assets/includes/include.php');
-var_dump($_POST);
+
 	// hier wordt de input meegenomen naar de functie
     if(isset($_POST['Insert'])){
 
-        //collect form data
+        //Ophalen form data
         extract($_POST);
 
-        //very basic validations
+        //Standaard validaties
         if($postname ==''){
             $error[] = 'Please enter the title.';
         }if($postcontent ==''){
@@ -27,7 +27,7 @@ var_dump($_POST);
 
     
 
-		//check for any errors
+		//check voor fout meldingen
 		if(isset($error)){
 			foreach($error as $error){
 				echo '<p class="message">'.$error.'</p>';

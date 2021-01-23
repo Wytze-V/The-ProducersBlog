@@ -49,7 +49,7 @@
 				  <li><a href='mijnposts.php?id=".$_SESSION['idUsers']."'>Mijn Posts</a></li> 
 			  
 		
-				  <li><a href='producer_posts_create.php'>Creër Post</a></li> 
+				  <li><a href='producer_posts_create.php'>Creëer Post</a></li> 
 				  </ul>
 				  </li>
 				";

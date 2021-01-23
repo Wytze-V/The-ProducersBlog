@@ -3,8 +3,10 @@ require_once('assets/includes/include.php');
 
 $con = getDBConnection();
 
+	//Hier word gecontroleerd of de gebruiker is ingelogd en of de gebruiker admin is anders geen toegang
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
-					
+				
+//hier wordt alle informatie van de gebruikers uit de database gehaald en geordend op datum				
 				$query = "SELECT * FROM users ORDER BY date";
 				$query_run = $con->query($query);
 
@@ -24,7 +26,7 @@ $con = getDBConnection();
 					</thead>
 					
 				';
-				
+				//hier word voor elke gebruiker een rij in een tabel aangemaakt met zijn of haar gegevens
 				//while($row = $query_run->fetch()){
 				foreach($query_run as $row){
 			
@@ -44,11 +46,6 @@ $con = getDBConnection();
 						</tr>
 						
 				</tbody>
-						
-					
-				
-			
-	
 			';
 				}
 				echo'</table>';
