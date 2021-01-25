@@ -17,6 +17,13 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 	$posts = getUserPost($id);
 	
 		foreach($posts as $post){
+			
+			$text = $post->postname;
+			$postname = html($text);
+			
+			$text = $post->postcontent;
+			$postcontent = html($text);
+			
 		  echo"
 		  
 		  <div class='container2'>
@@ -24,14 +31,14 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 						
 					<div>
 					
-					<h1><a href='show.php?id=".$post->idPost."'>".$post->postname."</a></h1>
+					<h1><a href='show.php?id=".$post->idPost."'>"/*.$post->postname.*/.$postname."</a></h1>
 					<hr>
 					
 					
 					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
-					<p>".$post->postcontent."</p>		
+					<p>"/*.$post->postcontent.*/.$postcontent."</p>		
 
 					
 					<form action='show.php?id=".$post->idPost."' method='post'>

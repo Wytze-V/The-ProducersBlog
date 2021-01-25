@@ -27,7 +27,7 @@ if(isset($lastpage)){
 			header('Location: ./');
 			exit;
 		}
-		//old code for comment, needs fixing, placed under "got back"
+		//old code for comment, needs fixing, placed under "go back"
 		/*
 		<div class='col-lg-3'>
 			<a href=''> Comment (0)</a>
@@ -38,6 +38,12 @@ if(isset($lastpage)){
 		//old code directing to post_view for button
 		//a href='post_view.php?id=".$post->idUsers."'
 		
+		$text = $post->postname;
+		$postname = html($text);
+			
+		$text = $post->postcontent;
+		$postcontent = html($text);
+		
 		echo"
 
 		<div class='container2'>
@@ -45,14 +51,14 @@ if(isset($lastpage)){
 						
 					<div>
 					
-					<h1>".$post->postname."</h1>
+					<h1>"/*.$post->postname.*/.$postname."</h1>
 					<hr>
 					
 					
 					<p>Geplaatst op ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
-					<p>".$post->postcontent."</p>
+					<p>"/*.$post->postcontent.*/.$postcontent."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
 					
 					
