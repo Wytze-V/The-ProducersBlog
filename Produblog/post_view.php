@@ -7,13 +7,19 @@ $id = $_GET["id"];
 if(isset($_SESSION['usertype'])){
 	$posts = getUserPost($id);
 	
+	echo"	
+			<p><button class='gaterugbtn'><a href='produceroverzicht.php'>Ga Terug</a></button></p>
+	";
+	
 		foreach($posts as $post){
 			
 			
 			
+
 			
 		  
 		  echo"
+		  
 		  
 		  <div class='container2'>
 			<div class='content2'>

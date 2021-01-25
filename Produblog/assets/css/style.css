@@ -191,6 +191,32 @@ text-decoration: none;
 color: #FEFEFE;
    }
    
+   
+   .gaterugbtn{ 
+    transition: all linear 0.2s;
+    background: #008BFF;
+   
+    border: none;
+    font-size: 13px;
+    line-height: 22px;
+    border-radius: 0;
+    padding: 6px 14px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 2px;
+	position:fixed;
+    right: 10px;
+    bottom: 10px;
+	
+
+
+
+  color: white;
+  }
+  .gaterugbtn a{
+
+text-decoration: none;
+color: #FEFEFE;
+   }
   
   
   

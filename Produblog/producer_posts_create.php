@@ -35,6 +35,7 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 		echo'
         <input type="checkbox" name="mainpost" value="1" >
 		<label for="Mainpost">Posten op hoofd pagina</label><br>
+
 		';
 		}
 		?>
