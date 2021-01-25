@@ -18,11 +18,6 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 	
 		foreach($posts as $post){
 			
-			$text = $post->postname;
-			$postname = html($text);
-			
-			$text = $post->postcontent;
-			$postcontent = html($text);
 			
 		  echo"
 		  
@@ -31,22 +26,22 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 						
 					<div>
 					
-					<h1><a href='show.php?id=".$post->idPost."'>"/*.$post->postname.*/.$postname."</a></h1>
+					<h1><a href='show.php?id=".html($post->idPost)."'>".html($post->postname)."</a></h1>
 					<hr>
 					
 					
 					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
-					<p>"/*.$post->postcontent.*/.$postcontent."</p>		
+					<p>".html($post->postcontent)."</p>		
 
 					
-					<form action='show.php?id=".$post->idPost."' method='post'>
+					<form action='show.php?id=".html($post->idPost)."' method='post'>
 					<p><button class='readbtn' type='submit' name='page' value='mijnposts' >Lees Meer</button></p>
 					</form>
 					
-					<p><button class='updatebtn'><a href='editpost.php?id=".$post->idPost."'>Bewerk</a></button></p>
-					<p><button class='deletebtn'><a href='deletepost.php?id=".$post->idPost."'>Verwijder</a></button></p>
+					<p><button class='updatebtn'><a href='editpost.php?id=".html($post->idPost)."'>Bewerk</a></button></p>
+					<p><button class='deletebtn'><a href='deletepost.php?id=".html($post->idPost)."'>Verwijder</a></button></p>
 					
 					</div>              
 

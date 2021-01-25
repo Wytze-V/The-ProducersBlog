@@ -33,15 +33,15 @@ $con = getDBConnection();
 				echo'
 				<tbody>
 						<tr class="active-row">
-							<th> '.$row->idUsers.' </th>
-							<th> '.$row->username.' </th>
-							<th> '.$row->email.' </th>
-							<th> '.$row->usertype.' </th>
+							<th> '.html($row->idUsers).' </th>
+							<th> '.html($row->username).' </th>
+							<th> '.html($row->email).' </th>
+							<th> '.html($row->usertype).' </th>
 							<th>
-								<a href="edituser.php?id='.$row->idUsers.'" class="edit_btn" >Bewerk</a>					
+								<a href="edituser.php?id='.html($row->idUsers).'" class="edit_btn" >Bewerk</a>					
 							</th>
 							<th>
-								<a href="deleteuser.php?id='.$row->idUsers.'" class="delete_btn" >Verwijder</a>
+								<a href="deleteuser.php?id='.html($row->idUsers).'" class="delete_btn" >Verwijder</a>
 							</th>
 						</tr>
 						

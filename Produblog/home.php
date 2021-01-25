@@ -29,11 +29,7 @@ $con = getDBConnection();
 		//<a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a>
 		foreach($adminposts as $adminpost){
 			
-			$text = $adminpost->postname;
-			$postname = html($text);
 			
-			$text = $adminpost->postcontent;
-			$postcontent = html($text);
 			echo"
 			
 			<div class='container2'>
@@ -41,14 +37,14 @@ $con = getDBConnection();
 						
 					<div>
 					
-					<h1>"/*.$adminpost->postname.*/.$postname."</h1>
+					<h1>".html($adminpost->postname)."</h1>
 					<hr>
 					
 					
 					<p>Geplaatst op ".date('jS M Y', strtotime($adminpost->datum))."</p>
 					<hr>
 					
-					<p>"/*.$adminpost->postcontent.*/.$postcontent."</p>
+					<p>".html($adminpost->postcontent)."</p>
 			 ";
 				if(isset($_SESSION['idUsers'])){
 					echo "

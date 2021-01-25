@@ -38,11 +38,7 @@ if(isset($lastpage)){
 		//old code directing to post_view for button
 		//a href='post_view.php?id=".$post->idUsers."'
 		
-		$text = $post->postname;
-		$postname = html($text);
-			
-		$text = $post->postcontent;
-		$postcontent = html($text);
+		
 		
 		echo"
 
@@ -51,14 +47,14 @@ if(isset($lastpage)){
 						
 					<div>
 					
-					<h1>"/*.$post->postname.*/.$postname."</h1>
+					<h1>".html($post->postname)."</h1>
 					<hr>
 					
 					
-					<p>Geplaatst op ".date('jS M Y', strtotime($post->datum))."</p>
+					<p>Geplaatst op ".html(date('jS M Y', strtotime($post->datum)))."</p>
 					<hr>
 					
-					<p>"/*.$post->postcontent.*/.$postcontent."</p>
+					<p>".html($post->postcontent)."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
 					
 					
@@ -71,7 +67,7 @@ if(isset($lastpage)){
 						<div class='col-lg-4'></div>
 						<div class='col-lg-6'>
 							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
-							<input type='hidden' name='idPost' value='".$post->idPost."' >
+							<input type='hidden' name='idPost' value='".html($post->idPost)."' >
 								<div class='form-group'>
 									<label class='col-lg-3 control-label'>Reageren</label>
 									<div class='col-lg-9'>
@@ -103,8 +99,8 @@ if(isset($lastpage)){
 								
 								echo'
 								<hr>
-									<p>'.$com->comment.'</p>
-									<p>Geplaatst Door: '.$com->username.'</p>
+									<p>'.html($com->comment).'</p>
+									<p>Geplaatst Door: '.html($com->username).'</p>
 								<hr>	
 									';					
 								}

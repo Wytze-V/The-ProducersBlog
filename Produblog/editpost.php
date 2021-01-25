@@ -20,20 +20,13 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 
 		 <form action='ac_post.php' method='POST'>
 		 
-				<input type='hidden' name='id' value='".$post->idPost."' >
+				<input type='hidden' name='id' value='".html($post->idPost)."' >
 				<h4><label>Titel</label><br>
-				<input type='text' name='postname' style='width:100%;height:40px' value='".$post->postname."'></h4>
+				<input type='text' name='postname' style='width:100%;height:40px' value='".html($post->postname)."'></h4>
 
 				<h4><label>Post Inhoud</label><br>
-				<textarea name='postcontent' id='textarea1' class='mceEditor' cols='120' rows='20'>".$post->postcontent."</textarea></h4>
-				";
-				if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
-					echo'
-						<input type="checkbox" name="mainpost" value="1" >
-						<label for="Mainpost">Posten als hoofd article</label><br>
-					';
-				}
-				echo"
+				<textarea name='postcontent' id='textarea1' class='mceEditor' cols='120' rows='20'>".html($post->postcontent)."</textarea></h4>
+				
 				<input class= 'insert_btn' type='submit' value='Wijzig Post!' name='Update'>
 
 

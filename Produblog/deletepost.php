@@ -18,12 +18,12 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 
 		 <form action='ac_post.php' method='POST'>
 		 
-				<input type='hidden' name='id' value='".$post->idPost."' >
+				<input type='hidden' name='id' value='".html($post->idPost)."' >
 				<h4><label>Titel</label><br>
-				<input type='text' name='postname' style='width:100%;height:40px' value='".$post->postname."'readonly></h4>
+				<input type='text' name='postname' style='width:100%;height:40px' value='".html($post->postname)."'readonly></h4>
 
 				<h4><label>Post Inhoud</label><br>
-				<textarea readonly name='postcontent' id='textarea1' class='mceEditor' cols='120' rows='20'>".$post->postcontent."</textarea></h4>
+				<textarea readonly name='postcontent' id='textarea1' class='mceEditor' cols='120' rows='20'>".html($post->postcontent)."</textarea></h4>
 				
 				
 				<input class= 'delete_btn' type='submit' value='Verwijder!' name='Delete'>

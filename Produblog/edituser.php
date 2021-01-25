@@ -8,20 +8,20 @@
 	  //hier definiëren wij dat variable gebruiker de functie getProfileA moet uitvoeren met het meegegeven id
 		    $gebruiker = getProfileA($id);  
         echo"<div class='login-page'>
-                <h3 class='font' >Profiel van ".$gebruiker->username."</h3>
+                <h3 class='font' >Profiel van ".html($gebruiker->username)."</h3>
                 <hr class='hr'>
                 <div class='form'>
                     <form class='register-form' method='POST' action='ac_user.php'>
                         <div class='caption loginText'>
-							<input type='hidden' name='id' value='".$gebruiker->idUsers."' >
+							<input type='hidden' name='id' value='".html($gebruiker->idUsers)."' >
                             <label>Gebruikersnaam</label>
-                            <input class='form__field' name='username' value='".$gebruiker->username."' >
+                            <input class='form__field' name='username' value='".html($gebruiker->username)."' >
                             </br>
                             <label>Email</label>
-                            <input class='form__field' name='email' value='".$gebruiker->email."'>
+                            <input class='form__field' name='email' value='".html($gebruiker->email)."'>
                             </br>
                             <label>Usertype</label>
-							<select class='form__field' name='usertype' value='".$gebruiker->usertype."'>
+							<select class='form__field' name='usertype' value='".html($gebruiker->usertype)."'>
 								<option value='gebruiker'>gebruiker</option>
 								<option value='producer'>producer</option>
 								<option value='admin'>admin</option>

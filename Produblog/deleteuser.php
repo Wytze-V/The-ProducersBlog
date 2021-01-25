@@ -6,20 +6,20 @@
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 		    $gebruiker = getProfileA($id);  
         echo"<div class='delete-page'>
-                <h3 class='font' >Weet je zeker dat je deze gebruiker wil verwijderen? ".$gebruiker->username."</h3>
+                <h3 class='font' >Weet je zeker dat je deze gebruiker wil verwijderen? ".html($gebruiker->username)."</h3>
                 <hr class='hr'>
                 <div class='form'>
                     <form class='register-form' method='POST' action='ac_user.php'>
                         <div class='caption loginText'>
-							<input type='hidden' name='id' value='".$gebruiker->idUsers."' >
+							<input type='hidden' name='id' value='".html($gebruiker->idUsers)."' >
                             <label>Gebruikersnaam</label>
-                            <input class='form__field' name='username' value='".$gebruiker->username."' readonly>
+                            <input class='form__field' name='username' value='".html($gebruiker->username)."' readonly>
                             </br>
                             <label>Email</label>
-                            <input class='form__field' name='email' value='".$gebruiker->email."'readonly>
+                            <input class='form__field' name='email' value='".html($gebruiker->email)."'readonly>
                             </br>
                             <label>Usertype</label>
-							<input class='form__field' name='usertype' value='".$gebruiker->usertype."'readonly>
+							<input class='form__field' name='usertype' value='".html($gebruiker->usertype)."'readonly>
 
 							</br>
                             </br>

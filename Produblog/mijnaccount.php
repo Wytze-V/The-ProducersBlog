@@ -5,19 +5,19 @@ require_once('assets/includes/include.php');
 //hier definiëren wij dat variable gebruiker de functie getProfile moet uitvoeren met het meegegeven id
     $gebruiker = getProfile($_SESSION['idUsers']);  
         echo"<div class='mijnaccount-page'>
-                <h3 class='font' >Profiel van ".$gebruiker->username."</h3>
+                <h3 class='font' >Profiel van ".html($gebruiker->username)."</h3>
                 <hr class='hr'>
                 <div class='form'>
                     <form class='register-form' method='POST' action='ac_user.php'>
                         <div class='caption loginText'>
                             <label>Gebruikersnaam</label>
-                            <input class='form__field' name='username' value='".$gebruiker->username."' >
+                            <input class='form__field' name='username' value='".html($gebruiker->username)."' >
                             </br>
                             <label>Email</label>
-                            <input class='form__field' name='email' value='".$gebruiker->email."'>
+                            <input class='form__field' name='email' value='".thml($gebruiker->email0."'>
                             </br>
                             <label>Usertype</label>
-                            <input class='form__field' name='usertype' value='".$gebruiker->usertype."' readonly>
+                            <input class='form__field' name='usertype' value='".html($gebruiker->usertype)."' readonly>
                             </br>
                             <input class='insert_btn' type='submit' value='Wijzig'  name='Update'>
                         </div>
