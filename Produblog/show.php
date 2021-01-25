@@ -88,7 +88,7 @@ if(isset($lastpage)){
 							<h1>Alle Reacties</h1>
 		";
 							
-							$com_query = "SELECT * FROM comment WHERE idPost = '$id' ";
+							$com_query = "SELECT * FROM comment WHERE idPost = '$id' ORDER BY idComment DESC ";
 							$com_result = $con->query($com_query);
 							
 							if($com_result){
