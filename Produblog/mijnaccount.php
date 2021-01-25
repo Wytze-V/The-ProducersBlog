@@ -14,7 +14,7 @@ require_once('assets/includes/include.php');
                             <input class='form__field' name='username' value='".html($gebruiker->username)."' >
                             </br>
                             <label>Email</label>
-                            <input class='form__field' name='email' value='".thml($gebruiker->email0."'>
+                            <input class='form__field' name='email' value='".html($gebruiker->email)."'>
                             </br>
                             <label>Usertype</label>
                             <input class='form__field' name='usertype' value='".html($gebruiker->usertype)."' readonly>
