@@ -16,7 +16,14 @@ require_once('assets/includes/include.php');
 
           try {
 
+		  //upload code
+		  
+		  soundupload();
+		  
+		  
+		  
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
+		
 		insertPost($postname,$postcontent,$idUsers,$date,$mainpost);
 		header("location: ./mijnposts.php");
 			}catch(PDOException $e) {

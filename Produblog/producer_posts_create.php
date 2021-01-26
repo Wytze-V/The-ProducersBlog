@@ -19,11 +19,15 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
     <h2>Creëer nieuw artikel</h2>
 
 
- <form action="ac_post.php" method="post">
+ <form action="ac_post.php" enctype="multipart/form-data" method="post">
 
         <h4><label>Titel</label><br>
         <input type="text" name="postname" style="width:100%;height:40px" value="<?php if(isset($error)){ echo $_POST['postname'];}?>"></h4>
 
+		Audio bestanden uploaden:
+		<input type="file" name="fileToUpload" id="fileToUpload">
+		
+		
       <!-- <h4><label>Short Description(Meta Description) </label><br>
         <textarea name="articleDescrip" cols="120" rows="6"> <?php// if(isset($error)){ echo $_POST['articleDescrip'];}//?></textarea></h4> -->
 
