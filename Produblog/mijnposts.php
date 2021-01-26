@@ -33,7 +33,7 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 					<p>Posted on ".date('jS M Y', strtotime($post->datum))."</p>
 					<hr>
 					
-					<p>".html($post->postcontent)."</p>		
+					<p>".$shortdisplay = substr(html($post->postcontent), 0, 200)."...</p>		
 
 					
 					<form action='show.php?id=".html($post->idPost)."' method='post'>

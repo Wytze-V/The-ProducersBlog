@@ -130,7 +130,7 @@ function deleteComment($id){
 function getAdminPost($id = null){
 $input_parameters = array();
 $con = getDBConnection();
-$sql = "SELECT * FROM post WHERE admin_post='1' LIMIT 3";
+$sql = "SELECT * FROM post WHERE admin_post='1' ORDER BY idPost DESC LIMIT 5";
 array_push($input_parameters , $id);
 
 $stmt = $con->prepare($sql);

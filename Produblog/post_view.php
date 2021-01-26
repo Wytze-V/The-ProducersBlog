@@ -33,7 +33,7 @@ if(isset($_SESSION['usertype'])){
 					<p>Geplaatst op ".html(date('jS M Y', strtotime($post->datum)))."</p>
 					<hr>
 					
-					<p>".html($post->postcontent)."</p>
+					<p>".$shortdisplay = substr(html($post->postcontent), 0, 200)."...</p>
 					
 					
 					<form action='show.php?id=".html($post->idPost)."' method='post'>

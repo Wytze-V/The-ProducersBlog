@@ -44,7 +44,9 @@ $con = getDBConnection();
 					<p>Geplaatst op ".date('jS M Y', strtotime($adminpost->datum))."</p>
 					<hr>
 					
-					<p>".html($adminpost->postcontent)."</p>
+					
+					
+					<p>".$shortdisplay = substr(html($adminpost->postcontent), 0, 200)."...</p>
 			 ";
 				if(isset($_SESSION['idUsers'])){
 					echo "

@@ -57,11 +57,16 @@ if(isset($lastpage)){
 					<p>".html($post->postcontent)."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
 					
+					</div>
+			</div>
+		</div>
 					
-		<hr>
+			<div class='container2'>
+			<div class='content2'>
+		<hr class='darkrow'>
 					<div class='row'>
-						<!-- <div class='col-lg-4'></div> -->
-						<div class='col-lg-6'>
+						<div class='col-lg-4'></div> 
+						<div class='col-lg-10'>
 							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
 							<input type='hidden' name='idPost' value='".html($post->idPost)."' >
 								<div class='form-group'>
@@ -75,12 +80,12 @@ if(isset($lastpage)){
 				
 						</div>
 					</div>
-					
+							<hr class='darkrow'>
 					<div class='row'>
 						<!-- <div class='col-lg-4'></div> -->
 						<div class='col-lg-6'>
 						
-		<hr>
+
 							<h1>Alle Reacties</h1>
 		";
 							
@@ -96,11 +101,11 @@ if(isset($lastpage)){
 									$idUsers = $com->idUsers;
 								
 								echo"
-								<hr>
+								<hr class='darkrow'>
 									<p>".html($com->comment)."</p>
 									<p>Geplaatst Door: ".html($com->username)."</p>
 									
-								<hr>	
+
 									";	if(isset($_SESSION['idUsers']) && ($_SESSION['idUsers'] == html($com->idUsers)) ){
 											echo"
 											
@@ -119,7 +124,7 @@ if(isset($lastpage)){
 						</div>
 					</div>
 					
-					</div>              
+					<!-- </div>   -->        
 		
 
 					
