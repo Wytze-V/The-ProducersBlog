@@ -102,7 +102,7 @@ $row = null;
 
 $input_parameters = array();
 $con = getDBConnection();
-$sql = "SELECT * FROM post WHERE idUsers ='$id' ";
+$sql = "SELECT * FROM post WHERE idUsers ='$id' ORDER BY idPost DESC";
 
 array_push($input_parameters , $row);
 
@@ -127,10 +127,18 @@ function deletePost($id){
 	$stmt->execute(array($id));
 }
 
+// hier wordt de geselecteerde Comment verwijderd uit de database
+function deleteComment($id){
+	$con = getDbConnection();
+	$sql = "DELETE FROM comment WHERE idComment=?";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($id));
+}
+
 function getAdminPost($id = null){
 $input_parameters = array();
 $con = getDBConnection();
-$sql = "SELECT * FROM post WHERE admin_post='1' LIMIT 3";
+$sql = "SELECT * FROM post WHERE admin_post='1' ORDER BY idPost DESC LIMIT 5";
 array_push($input_parameters , $id);
 
 $stmt = $con->prepare($sql);

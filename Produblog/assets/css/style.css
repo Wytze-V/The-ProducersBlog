@@ -396,6 +396,10 @@ color: #FEFEFE;
 	font-weight: bold;
 }
 
+.darkrow{
+	border-top: 1px solid purple;
+}
+
 
 
 /*form, .content {
