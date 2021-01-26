@@ -94,7 +94,7 @@ $row = null;
 
 $input_parameters = array();
 $con = getDBConnection();
-$sql = "SELECT * FROM post WHERE idUsers ='$id' ";
+$sql = "SELECT * FROM post WHERE idUsers ='$id' ORDER BY idPost DESC";
 
 array_push($input_parameters , $row);
 
