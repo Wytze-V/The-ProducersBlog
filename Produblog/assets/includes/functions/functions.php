@@ -9,11 +9,19 @@ function insertUser($username,$password,$usertype,$email,$date){
 	$stmt->execute(array($username,$password,$usertype,$email,$date));
 	
 }
+
 function updateUser($username,$email,$usertype, $date,$id){
 	$con = getDBConnection();
 	$sql = "UPDATE users SET username = ?, email= ?, usertype= ?, date= ? WHERE  idUsers=? ";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($username,$email,$usertype,$date,$id));
+}
+
+function clean($string) {
+   $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
+   $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
+
+   return preg_replace('/-+/', '-', $string); // Replaces multiple hyphens with single one.
 }
 
 // hier wordt een gebruiker opgehaald uit de database
@@ -194,14 +202,20 @@ function backbutton($lastpage, $post){
 }
 
 
+
+
 function html($text){
     return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
 function soundupload(){
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$idu = $_SESSION['idUsers'];
+$target_dir = "uploads/$idu/";
+$postname = $_POST['postname'];
+$postnamec = clean($postname);
+$targetfold = "$postnamec/";
+$target_file = $target_dir . $targetfold . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
@@ -233,8 +247,8 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 
 // Allow certain file formats
 if($imageFileType != "mp3" && $imageFileType != "wav" && $imageFileType != "ogg"
-&& $imageFileType != "flac" ) {
-  echo "Sorry, only mp3, wav, ogg & flac files are allowed.";
+&& $imageFileType != "flac" && $imageFileType != "midi" ) {
+  echo "Sorry, only mp3, wav, ogg, flac and midi files are allowed.";
   $uploadOk = 0;
 }
 
@@ -244,12 +258,32 @@ if ($uploadOk == 0) {
   
 // if everything is ok, try to upload file
 } else {
+	
+	if(is_dir($target_dir) != true ){
+		
+	mkdir($target_dir);
+	
+	}
+	
+	if(is_dir($target_dir . $targetfold) != true ){
+		
+	mkdir($target_dir . $targetfold);
+	
+	}
+	
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+	///print_r($target_dir.$targetfold);
+	//print_r($target_file);
+	//var_dump($_POST);
+	
+	
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
+
+
 
 }
 

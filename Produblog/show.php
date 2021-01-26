@@ -38,8 +38,17 @@ if(isset($lastpage)){
 		//old code directing to post_view for button
 		//a href='post_view.php?id=".$post->idUsers."'
 		
+		$myAudioFile = "uploads/11 Blue Christmas.mp3";
+		
+		$path = $myAudioFile;
+		$ext = pathinfo($path, PATHINFO_EXTENSION);
+		print_r($ext);
 		
 		
+		
+		if(file_exists($myAudioFile) == true){
+			echo'Found file!';
+		}
 		echo"
 
 		<div class='container2'>
@@ -53,6 +62,10 @@ if(isset($lastpage)){
 					
 					<p>Geplaatst op ".html(date('jS M Y', strtotime($post->datum)))."</p>
 					<hr>
+					
+					<audio controls autoplay='true' style='display:none;'>
+					<source src='$myAudioFile' type='audio/$ext'>
+					</audio>
 					
 					<p>".html($post->postcontent)."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
