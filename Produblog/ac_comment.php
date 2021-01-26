@@ -15,7 +15,11 @@ require_once('assets/includes/include.php');
 		
 	}
 		
-
-
+	}elseif(isset($_POST['Delete'])){
+		$id = ($_POST['id']);
+		$postid = $_POST['idPost'];
+		print_r($_POST);
+		deleteComment($id);
+		header("location: ./show.php?id=" . $postid);
 	}
 ?>

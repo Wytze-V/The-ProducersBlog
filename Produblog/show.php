@@ -58,13 +58,9 @@ if(isset($lastpage)){
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
 					
 					
-
-		
-					
-		
 		<hr>
 					<div class='row'>
-						<div class='col-lg-4'></div>
+						<!-- <div class='col-lg-4'></div> -->
 						<div class='col-lg-6'>
 							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
 							<input type='hidden' name='idPost' value='".html($post->idPost)."' >
@@ -81,7 +77,7 @@ if(isset($lastpage)){
 					</div>
 					
 					<div class='row'>
-						<div class='col-lg-4'></div>
+						<!-- <div class='col-lg-4'></div> -->
 						<div class='col-lg-6'>
 						
 		<hr>
@@ -96,13 +92,27 @@ if(isset($lastpage)){
 									$username = $com->username;
 									$comment = $com->comment;
 									$datum = $com->datum;
+									$idComment = $com->idComment;
+									$idUsers = $com->idUsers;
 								
-								echo'
+								echo"
 								<hr>
-									<p>'.html($com->comment).'</p>
-									<p>Geplaatst Door: '.html($com->username).'</p>
+									<p>".html($com->comment)."</p>
+									<p>Geplaatst Door: ".html($com->username)."</p>
+									
 								<hr>	
-									';					
+									";	if(isset($_SESSION['idUsers']) && ($_SESSION['idUsers'] == html($com->idUsers)) ){
+											echo"
+											
+											<form action='ac_comment.php' method='POST'>
+											<input type='hidden' name='id' value='".html($com->idComment)."' >
+											<input type='hidden' name='idPost' value='".html($com->idPost)."' >
+											
+												<input class= 'deletebtn' type='submit' value='Verwijder' name='Delete'>
+								
+											</form>
+											";	
+									}										
 								}
 							}
 					echo"

@@ -119,6 +119,14 @@ function deletePost($id){
 	$stmt->execute(array($id));
 }
 
+// hier wordt de geselecteerde Comment verwijderd uit de database
+function deleteComment($id){
+	$con = getDbConnection();
+	$sql = "DELETE FROM comment WHERE idComment=?";
+	$stmt = $con->prepare($sql);
+	$stmt->execute(array($id));
+}
+
 function getAdminPost($id = null){
 $input_parameters = array();
 $con = getDBConnection();
