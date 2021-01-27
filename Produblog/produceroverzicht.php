@@ -5,8 +5,10 @@ require_once('assets/includes/include.php');
 		$con = getDBConnection();
 		$producers = getProducer();
 	
+
 		foreach($producers as $producer){
 			echo"
+			
 				<div class='container3'>
 				<div class='content2'>
 					
@@ -21,8 +23,10 @@ require_once('assets/includes/include.php');
 				
 				</div>
 				</div>
+			
 			";			
 		}
+
 	
 	}
 ?>
