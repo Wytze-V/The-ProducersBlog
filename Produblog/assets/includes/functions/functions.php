@@ -258,7 +258,7 @@ if ($_FILES["fileToUpload"]["size"] > 500000000) {
 // Allow certain file formats
 if($imageFileType != "mp3" && $imageFileType != "wav" && $imageFileType != "ogg"
 && $imageFileType != "flac" && $imageFileType != "midi" ) {
-  echo "Sorry, only mp3, wav, ogg, flac and midi files are allowed.";
+  echo "Sorry, only the following files are allowed: mp3, wav, ogg, flac, midi.";
   $uploadOk = 0;
 }
 
