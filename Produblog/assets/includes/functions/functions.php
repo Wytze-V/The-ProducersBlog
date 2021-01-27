@@ -68,18 +68,19 @@ function deleteUserA($id){
 }
 
 // Hier wordt een Post in de database aangemaakt
-function insertPost($postname,$postcontent,$idUsers,$date,$mainpost){
+function insertPost($postname,$postcontent,$idUsers,$file_ops,$date,$mainpost){
 	$con = getDBConnection();
 	$sql = "INSERT INTO post
-  (postname, postcontent, idUsers, datum, admin_post) VALUES (:postname, :postcontent, :idUsers, :date, :mainpost)"; 
+  (postname,postcontent,idUsers,file_ops,datum,admin_post) VALUES (:postname,:postcontent,:idUsers,:file_ops,:date,:mainpost)"; 
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array(
     ':postname' => $postname,
     ':postcontent' => $postcontent,
 	':idUsers' => $_SESSION['idUsers'],
+	':file_ops' => $file_ops,
     ':date' => date('Y-m-d H:i:s'),
 	':mainpost' => $_POST['mainpost'],
-    
+	
 ));
 }
 // hier wordt een post opgehaald uit de database
@@ -170,7 +171,7 @@ function insertComment($postid,$userid,$username,$comment,$datum){
 }
 
 // hier wordt een post opgehaald uit de database
-function getComment($id = null){
+function getComment(){
 $input_parameters = array();
 $con = getDBConnection();
 $sql = "SELECT * FROM comment";
@@ -218,6 +219,7 @@ function html($text){
 
 function soundupload(){
 
+$dbFile = null;
 $idu = $_SESSION['idUsers'];
 $target_dir = "uploads/$idu/";
 $postname = $_POST['postname'];
@@ -229,7 +231,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["Insert"])) {
-  $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+  //$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
   /*if($check !== false) {
     echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
@@ -263,6 +265,7 @@ if($imageFileType != "mp3" && $imageFileType != "wav" && $imageFileType != "ogg"
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
+  return $dbFile;
   
 // if everything is ok, try to upload file
 } else {
@@ -284,16 +287,74 @@ if ($uploadOk == 0) {
 	///print_r($target_dir.$targetfold);
 	//print_r($target_file);
 	//var_dump($_POST);
-	
+	$dbFile = $postnamec;
+	return $dbFile;
 	
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
 
-
-
 }
+function pageaudio($post){
+	if(($post->file_ops) != null){
+			
+			$upload = 'uploads/';
+			$postidu = $post->idUsers;
+			$fileloc = $post->file_ops;
+			$bksl = '/';
+		
+			
+		
+			$dirget = ($upload.$postidu.$bksl.$fileloc.$bksl);
+			
+		
+			$directory = scandir($dirget);
+			
+			
+			foreach($directory as $item){
+				
+				if(($item != '.') ){
+					if($item != '..'){
+						$getaudio = $dirget.$item;
+						$ext = pathinfo($getaudio, PATHINFO_EXTENSION);
+						echo"
+							
+							<audio controls>
+							<source src='$getaudio' type='audio/$ext'>
+							</audio>
+							
+						";
+						
+				
+					}
+			}
+			
+			}
+			/*$myAudioFile = 
+				//"uploads/11 Blue Christmas.mp3";
+		
+			$path = $myAudioFile;
+			$ext = pathinfo($path, PATHINFO_EXTENSION);
+			
+			<audio controls autoplay='true' style='display:none;'>
+					<source src='$myAudioFile' type='audio/$ext'>
+					</audio>
+			
+			print_r($ext);*/
+			
+		}
+	
+}
+
+
+
+
+
+
+
+
+
 
 
 ?>
