@@ -4,6 +4,7 @@ $con = getDBConnection();
 $id = $_GET["id"];
 
 
+
 	
 if(isset($_POST["page"])){
 		$lastpage = $_POST["page"];
@@ -12,13 +13,7 @@ else{
 	$lastpage = null;	
 }
 
-//debug stuff
-/*	
-var_dump($lastpage);
-if(isset($lastpage)){
-	echo" Lastpage set!";
-}
-*/
+
 
 	if(isset($_SESSION['idUsers'])){
 		$post = getPost($id);
@@ -27,28 +22,16 @@ if(isset($lastpage)){
 			header('Location: ./');
 			exit;
 		}
-		//old code for comment, needs fixing, placed under "go back"
-		/*
-		<div class='col-lg-3'>
-			<a href=''> Comment (0)</a>
-		</div>
-		*/
-		
-		
-		//old code directing to post_view for button
-		//a href='post_view.php?id=".$post->idUsers."'
-		
-		$myAudioFile = "uploads/11 Blue Christmas.mp3";
-		
-		$path = $myAudioFile;
-		$ext = pathinfo($path, PATHINFO_EXTENSION);
-		print_r($ext);
 		
 		
 		
-		if(file_exists($myAudioFile) == true){
-			echo'Found file!';
-		}
+		
+		
+		
+		
+		
+		
+		
 		echo"
 
 		<div class='container2'>
@@ -63,9 +46,8 @@ if(isset($lastpage)){
 					<p>Geplaatst op ".html(date('jS M Y', strtotime($post->datum)))."</p>
 					<hr>
 					
-					<audio controls autoplay='true' style='display:none;'>
-					<source src='$myAudioFile' type='audio/$ext'>
-					</audio>
+					".pageaudio($post)."
+					
 					
 					<p>".html($post->postcontent)."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
