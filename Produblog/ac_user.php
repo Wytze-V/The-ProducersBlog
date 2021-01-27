@@ -18,6 +18,7 @@ require_once('assets/includes/include.php');
 		if ($data['password'] !== $data['confirm-password']) {
 			die('Password and Confirm password do not match!');   
 		}
+		
 		else{
 		
 		$username = ($_POST['username']);
