@@ -3,6 +3,14 @@ require_once('assets/includes/include.php');
 
 $con = getDBConnection();
 
+		if(!isset($_SESSION['idUsers'])){
+			echo "
+			<div class='welkom-home'>
+			Welkom, Indien u de volledige posts wilt bekijken moet u inloggen of een account aanmaken.		
+			</div>
+			";
+		}
+
 		// als je ingelogt bent staat er log out + username. // als je nog niet bent ingelogt staat er log in
 		if(isset($_SESSION['idUsers'])){	
 				
