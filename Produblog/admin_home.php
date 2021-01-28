@@ -7,7 +7,7 @@ $con = getDBConnection();
   if(isset($_SESSION['usertype']) && $_SESSION['usertype'] == 'admin'){
 				
 //hier wordt alle informatie van de gebruikers uit de database gehaald en geordend op datum				
-				$query = "SELECT * FROM users ORDER BY date";
+				$query = "SELECT * FROM users ORDER BY date DESC";
 				$query_run = $con->query($query);
 
 			if($query_run){
@@ -20,6 +20,7 @@ $con = getDBConnection();
 							<th>Username</th>
 							<th>Email</th>
 							<th>Usertype</th>
+							<th>Datum</th>
 							<th>EDIT</th>
 							<th>DELETE</th>
 						</tr>
@@ -37,6 +38,7 @@ $con = getDBConnection();
 							<th> '.html($row->username).' </th>
 							<th> '.html($row->email).' </th>
 							<th> '.html($row->usertype).' </th>
+							<th>'.html($row->date).'</th>
 							<th>
 								<a href="edituser.php?id='.html($row->idUsers).'" class="edit_btn" >Bewerk</a>					
 							</th>
