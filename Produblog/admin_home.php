@@ -28,7 +28,7 @@ $con = getDBConnection();
 					
 				';
 				//hier word voor elke gebruiker een rij in een tabel aangemaakt met zijn of haar gegevens
-				//while($row = $query_run->fetch()){
+				
 				foreach($query_run as $row){
 			
 				echo'

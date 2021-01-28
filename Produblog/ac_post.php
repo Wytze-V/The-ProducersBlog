@@ -22,8 +22,7 @@ require_once('assets/includes/include.php');
 		  
 		  $file_ops = $dbFile;
 		  
-		  print_r($file_ops);
-		  var_dump($_POST);
+		  
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
 		
 		insertPost($postname,$postcontent,$idUsers,$file_ops,$date,$mainpost);

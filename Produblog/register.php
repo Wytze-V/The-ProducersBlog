@@ -1,7 +1,5 @@
 <?php require_once('assets/includes/include.php'); 
 
-$con = getDBConnection();
-
 // kijk of user al is ingelogd
 if(isset($_SESSION['idUsers'])){
 	// User is al ingelogd, stuur user naar homepage

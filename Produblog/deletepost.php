@@ -1,10 +1,11 @@
 <?php
  require_once('assets/includes/include.php');
+ //Hier wordt ID van post opgehald van vorige pagina
  $id = $_GET["id"];
  
- 
+ //Hier word gecontroleerd of de gebruiker heeft toegang tot pagina
 if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
-	
+	//hier woord functie opgehaald
 	$post = getPost($id);
 	echo"
 

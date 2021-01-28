@@ -1,10 +1,11 @@
 <?php
 
 require_once('assets/includes/include.php');
-
+//id van producer meegenomen
 $id = $_GET["id"];
-
+//controleer of gebruiker is ingelogd
 if(isset($_SESSION['usertype'])){
+	//functie om posts op te halen
 	$posts = getUserPost($id);
 	
 	echo"	

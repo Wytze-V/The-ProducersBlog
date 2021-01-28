@@ -1,7 +1,7 @@
 <?php include_once('assets/includes/include.php'); ?>
 
 <?php 
-
+//database connectie
 $con = getDBConnection();
 
 // Check of user al is ingelogd
@@ -20,7 +20,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
 	
 	// Sla resultaat op
 	$result = $account->fetch(PDO::FETCH_ASSOC);
-	//var_dump($result);
+	
 	
 	// als er een resultaat is en het wachtwoord matched, sla dan de sessie op
 	if(count($result) > 0 && password_verify($_POST['password'], $result['password'])){

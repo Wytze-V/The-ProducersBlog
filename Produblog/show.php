@@ -1,18 +1,19 @@
 <?php require_once('assets/includes/include.php');
-
+//Database connectie
 $con = getDBConnection();
+//ID post megenomen
 $id = $_GET["id"];
-	
+	//hier wordt gecontroleerd wat de laatste pagina was voor "ga terug" button
 if(isset($_POST["page"])){
 		$lastpage = $_POST["page"];
 	}
 else{
 	$lastpage = null;	
 }
-
+	//hier wordt gecontroleerd als ongelogd
 	if(isset($_SESSION['idUsers'])){
 		$post = getPost($id);
-		//if post does not exists redirect user.
+		//Als post niet bestaat, redirect
 		if($post->idPost == null){
 			header('Location: ./');
 			exit;
@@ -23,22 +24,23 @@ else{
 		<div class='container2'>
 			<div class='content2'>
 						
-					<div>
+				<div>
 					
 					<h1>".html($post->postname)."</h1>
 					<hr>
-					
-					
+						
+						
 					<p>Geplaatst op ".html(date('jS M Y', strtotime($post->datum)))."</p>
 					<hr>
-					
+						
 					".pageaudio($post)."
-					
-					
+						
+						
 					<p>".html($post->postcontent)."</p>
 					<p><button class='readbtn'><a href="; backbutton($lastpage, $post); echo " >Ga Terug</a></button></p>
 					
-					</div>
+				</div>
+				
 			</div>
 		</div>
 					

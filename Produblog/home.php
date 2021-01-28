@@ -1,8 +1,8 @@
 <?php
 require_once('assets/includes/include.php');
-
+//database connectie
 $con = getDBConnection();
-
+		//hier wordt gekijken of gebruiker is wel of niet ingelogt
 		if(!isset($_SESSION['idUsers'])){
 			echo "
 			<div class='welkom-home'>
@@ -19,7 +19,7 @@ $con = getDBConnection();
 			$user =  $con->prepare($query);
 			$user->bindValue(':idUsers', $_SESSION['idUsers']);
 			$user->execute();
-			//echo $_SESSION['idUsers'];
+			
 						
 			// Sla resultaat op
 			$result = $user->fetch(PDO::FETCH_ASSOC);
@@ -33,15 +33,15 @@ $con = getDBConnection();
 		}
 		//Admin posts
 		$adminposts = getAdminPost();
-		//old action triggers for button
-		//<a href='show.php?id=".$adminpost->idPost."'>Lees Meer</a>
+		
+		
 		foreach($adminposts as $adminpost){
 			
 			
 			echo"
 			
 			<div class='container2'>
-			<div class='content2'>
+				<div class='content2'>
 						
 					<div>
 					
@@ -75,18 +75,8 @@ $con = getDBConnection();
 			echo"
 					
 					</div>              
-		
-
-					
-
-		
+				</div>	
 			</div>
-			
-
-
-			
-			
-		 </div>
 			
 		";
 			
