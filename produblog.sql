@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 27, 2021 at 02:37 PM
+-- Generation Time: Jan 28, 2021 at 03:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -91,7 +91,9 @@ INSERT INTO `post` (`idPost`, `idUsers`, `postname`, `postcontent`, `file_ops`, 
 (26, 24, 'How to get that drum sound?', 'How do I get that \"80\'s\" sounding drum sound? I\'ve been trying to puzzle out how to get the thick, poppy sound like I heard from this song when I was playing \"Sonic Before the Sequal\". It\'s a cool sound, and I know it uses reverb but how?', 'How-to-get-that-drum-sound', '2021-01-27', NULL),
 (28, 25, 'Hallo, ik ben SlimSyndi', 'Hoi, ik ben een nederlands producer onder de naam SlimSyndi. Ik maak moderne DnB en Breakbeat tracks, zoals dit. Ik wil graag mijn kennis delen met jullie delen.', 'Hallo-ik-ben-SlimSyndi', '2021-01-27', NULL),
 (32, 8, 'How to make that 80s gated reverb sound!', 'Without wishing to be too pedantic, strictly speaking, the classic gated reverb effect attributed to Phil Collins was actually created by Peter Gabriel some time earlier and, interestingly, quite by accident.\r\n\r\nThey were setting up a kit for recording, and there just happened to be some sends on the channels being used for the drum mics going to an AMS reverb — and the reverb\'s returns just happened to be patched into two channels that just happened to have some noise gates strapped across them! As the drums were being tuned and hit and miked up in the studio, listeners in the control room heard the fabulous sound of the reverb being abruptly cut short by the gates on the returns. Rather than \'fix\' this, Gabriel exploited it and it became a trademark sound on his third album, particularly on the opening track, \'Intruder\'.\r\n\r\nTo create that effect authentically, send the drums to a reverb with a medium room preset selected. Now route the output of that reverb through a stereo noise gate (or patch a stereo noise gate into the reverb\'s return channels) and set an instant attack and pretty much instant release. The gate\'s hold time can be adjusted to taste, but the threshold should be adjusted carefully to avoid any \'fluttering\' during the final part of the reverb tail. For more accurate triggering of the noise gate, take a feed from the drums into the gate\'s side-chain so that the percussive attack from the drums is used to trigger it, rather than the onset of the reverb alone.\r\n\r\n', NULL, '2021-01-27', 1),
-(34, 8, 'Producer Spotlight: Patricia Taxxon', 'Een van de meest productief en ruimdenkende producer in het laatste paar maanden, Patricia heeft in 2020 alleen bijna een volle album per maand geproduced. Haar style is duidelijk wel simpel en direct, maar de is zeker een sterkte punt voor haar. \"Cilantro\" van \"Bit and Pix\" is een uitbundig en poppy nummer met invloed van rap tot complextro. Als dat niet in de smaak valt, dan heeft ze zeker iets in een andere style dat jij zou wel leuk vinden. Jij kan haar werk vinden op https://patriciataxxon.bandcamp.com/ .', 'Producer-Spotlight-Patricia-Taxxon', '2021-01-27', 1);
+(34, 8, 'Producer Spotlight: Patricia Taxxon', 'Een van de meest productief en ruimdenkende producer in het laatste paar maanden, Patricia heeft in 2020 alleen bijna een volle album per maand geproduced. Haar style is duidelijk wel simpel en direct, maar de is zeker een sterkte punt voor haar. \"Cilantro\" van \"Bit and Pix\" is een uitbundig en poppy nummer met invloed van rap tot complextro. Als dat niet in de smaak valt, dan heeft ze zeker iets in een andere style dat jij zou wel leuk vinden. Jij kan haar werk vinden op https://patriciataxxon.bandcamp.com/ .', 'Producer-Spotlight-Patricia-Taxxon', '2021-01-27', 1),
+(36, 8, 'Post Acceptatie Test', 'Vandag 27 januari voeren wij de acceptatie test, en bij deze woord dit post getest!!!', 'Post-Acceptatie-Test', '2021-01-27', 1),
+(37, 23, 'this will go to the database if good', 'so it should.', NULL, '2021-01-28', NULL);
 
 -- --------------------------------------------------------
 
@@ -130,8 +132,11 @@ INSERT INTO `users` (`idUsers`, `username`, `password`, `usertype`, `email`, `da
 (23, 'Wytzeproducer', '$2y$10$uIglO6mnwjaSUHpd6HriDOFu9CDlCe1qKfSO7dNU.FWebnU1qPzIe', 'producer', 'Wytzeg@gmail.com', '2021-01-27'),
 (24, 'JackStartoff', '$2y$10$IDT..UpdjKbD4ZQzxp5AheEd27c0nimhgnKpEfeNJIcc4blJY2nL6', 'producer', 'Jack@gmail.com', '2021-01-27'),
 (25, 'SlimSyndieNL', '$2y$10$IjDrLT/qUYoJCoDHdKIAsOYvLM6z2MOK4.0R579umr8VnRrPS1rQK', 'producer', 'SyndiCyndi@gmail.com', '2021-01-27'),
-(26, 'verwijdergebruiker', '$2y$10$VwGr7M0NdsYlmNqOGenqQ.mguy1YSoo1VlxKwOkSJC.oACrkXg5Hy', 'gebruiker', 'verwijdergebruiker@hotmail.com', '2021-01-27'),
-(28, 'patricia', '$2y$10$6SrzNfAdeag7N7cUc3PlR.wV2MiIbSJZErR4K4/OWhbPfSR0ebGIO', 'gebruiker', 'Patricia@hotmail.com', '2021-01-27');
+(28, 'patricia', '$2y$10$6SrzNfAdeag7N7cUc3PlR.wV2MiIbSJZErR4K4/OWhbPfSR0ebGIO', 'producer', 'Patricia@hotmail.com', '2021-01-27'),
+(32, 'HansHe', '$2y$10$5m5fxJYbUkorUg9dt3X6iulC6O7RWumav8I8iL3ExfHI0YnynO7gS', 'gebruiker', 'HansHero@hotmail.com', '2021-01-27'),
+(34, 'adminassessoren', '$2y$10$cAUTVm3vwMdf6Zjrv4XD3Oak70sYTYhBeSdVBMuNKUBddJ1FFFtIW', 'admin', 'adminassessoren@roc.12', '2021-01-28'),
+(35, 'producerassessoren', '$2y$10$pxAB9mw/KpqyoobtZzfll.llDvKQN0XY6exQr30Xkm5nYJSyE6hhG', 'producer', 'producerassessoren@roc.12', '2021-01-28'),
+(36, 'gebruikerassessoren', '$2y$10$SCAphjQPERPMMHfOjev44uRjGXpeC1xnArv7F9MJ6yT5cTIc6fOlO', 'gebruiker', 'gebruikerassessoren@roc.12', '2021-01-28');
 
 --
 -- Indexes for dumped tables
@@ -168,19 +173,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idComment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idUsers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idUsers` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
