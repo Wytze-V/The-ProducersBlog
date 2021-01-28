@@ -1,8 +1,8 @@
 <?php
 require_once('assets/includes/include.php');
-
+	//controler of gebruiker ingelogd is
     if(isset($_SESSION['idUsers'])){ 
-		$con = getDBConnection();
+		//producers ophalen
 		$producers = getProducer();
 	
 

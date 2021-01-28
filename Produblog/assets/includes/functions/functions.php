@@ -9,14 +9,14 @@ function insertUser($username,$password,$usertype,$email,$date){
 	$stmt->execute(array($username,$password,$usertype,$email,$date));
 	
 }
-
+//gebruikers informatie update
 function updateUser($username,$email,$usertype, $date,$id){
 	$con = getDBConnection();
 	$sql = "UPDATE users SET username = ?, email= ?, usertype= ?, date= ? WHERE  idUsers=? ";
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($username,$email,$usertype,$date,$id));
 }
-
+//file upload file naam clean
 function clean($string) {
    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
    $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
@@ -38,7 +38,7 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
-// hier wordt een gebruiker opgehaald uit de database
+// hier wordt een gebruiker opgehaald uit de database voor admin
 function getProfileA($id = null){
 $input_parameters = array();
 $con = getDBConnection();
@@ -51,7 +51,7 @@ $stmt = $con->prepare($sql);
 $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
-
+//gebruikers informatie beijgewerkt door admin
 function updateUserA($username,$email,$usertype,$date,$id){
 	$con = getDBConnection();
 	$sql = "UPDATE users SET username = ?, email= ?, usertype= ?, date= ? WHERE  idUsers=? ";
@@ -96,7 +96,7 @@ $stmt = $con->prepare($sql);
 $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
-
+//Posts van een specific user ophalen
 function getUserPost($id){
 $row = null;
 
@@ -112,7 +112,7 @@ $stmt->execute($input_parameters);
 return $row != null ? $stmt->fetch() : $stmt->fetchAll();
 
 }
-
+//Hier wordt post bijgewerkt
 function updatePost($postname,$postcontent,$id){
 	$con = getDBConnection();
 	$sql = "UPDATE post SET postname= ?, postcontent= ? WHERE  idPost= ? ";
@@ -135,7 +135,7 @@ function deleteComment($id){
 	$stmt = $con->prepare($sql);
 	$stmt->execute(array($id));
 }
-
+//hier word alle posts van admin opgehaald voor op home pagina
 function getAdminPost($id = null){
 $input_parameters = array();
 $con = getDBConnection();
@@ -147,7 +147,7 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
-// hier wordt een gebruiker opgehaald uit de database
+// hier wordt een producer opgehaald uit de database
 function getProducer($id = null){
 $input_parameters = array();
 $con = getDBConnection();
@@ -170,7 +170,7 @@ function insertComment($postid,$userid,$username,$comment,$datum){
 	
 }
 
-// hier wordt een post opgehaald uit de database
+// hier wordt een comment opgehaald uit de database
 function getComment(){
 $input_parameters = array();
 $con = getDBConnection();
@@ -184,6 +184,7 @@ $stmt->execute($input_parameters);
 return $id != null ? $stmt->fetch() : $stmt->fetchAll();
 }
 
+//button die naar de vorige pagina gaat
 function backbutton($lastpage, $post){
 	
 	if(isset($lastpage)){
@@ -210,13 +211,12 @@ function backbutton($lastpage, $post){
 	}
 }
 
-
-
-
+//database informatie deiplay als html text (zorgd ervoor dat scripts in databse niet kan uitgevoord
 function html($text){
     return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+//uploaden van geluids bestand
 function soundupload(){
 
 $dbFile = null;
@@ -229,45 +229,37 @@ $target_file = $target_dir . $targetfold . basename($_FILES["fileToUpload"]["nam
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-// Check if image file is a actual image or fake image
+// controleer of file is doorgegeven
 if(isset($_POST["Insert"])) {
-  //$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-  /*if($check !== false) {
-    echo "File is an image - " . $check["mime"] . ".";
-    $uploadOk = 1;
-  } else {
-    echo "File is not an image.";
-    $uploadOk = 0;
-  }*/
-  //simplified and modified from image version, needs security checks
+  
   $uploadOk = 1;
 }
 
-// Check if file already exists
+// controleer of bestand bestaat
 if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
   $uploadOk = 0;
 }
 
-// Check file size
+// controleer bestand grote
 if ($_FILES["fileToUpload"]["size"] > 500000000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
 
-// Allow certain file formats
+// Toestemming voor beperkte file formats
 if($imageFileType != "mp3" && $imageFileType != "wav" && $imageFileType != "ogg"
 && $imageFileType != "flac" && $imageFileType != "midi" ) {
   echo "Sorry, only the following files are allowed: mp3, wav, ogg, flac, midi.";
   $uploadOk = 0;
 }
 
-// Check if $uploadOk is set to 0 by an error
+// controleer of $uploadOk, 0 is als error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
   return $dbFile;
   
-// if everything is ok, try to upload file
+// Alles goed, upload file
 } else {
 	
 	if(is_dir($target_dir) != true ){
@@ -284,9 +276,9 @@ if ($uploadOk == 0) {
 	
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-	///print_r($target_dir.$targetfold);
-	//print_r($target_file);
-	//var_dump($_POST);
+	
+	
+	
 	$dbFile = $postnamec;
 	return $dbFile;
 	
@@ -295,7 +287,10 @@ if ($uploadOk == 0) {
   }
 }
 
+
 }
+
+//displayed en speelt audio fragmenten af
 function pageaudio($post){
 	if(($post->file_ops) != null){
 			
@@ -328,22 +323,12 @@ function pageaudio($post){
 						
 				
 					}
-			}
+				}
 			
 			}
-			/*$myAudioFile = 
-				//"uploads/11 Blue Christmas.mp3";
-		
-			$path = $myAudioFile;
-			$ext = pathinfo($path, PATHINFO_EXTENSION);
 			
-			<audio controls autoplay='true' style='display:none;'>
-					<source src='$myAudioFile' type='audio/$ext'>
-					</audio>
 			
-			print_r($ext);*/
-			
-		}
+	}
 	
 }
 

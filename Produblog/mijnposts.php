@@ -1,9 +1,9 @@
 <?php
 
 require_once('assets/includes/include.php');
-
+//id van gebruiker opgehaald
 $id = $_SESSION["idUsers"];
-
+//Controle of gebruiker toegang heeft
 if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
 	
 			echo "
@@ -13,7 +13,7 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 			Hier kan je de posts bewerken of verwijderen.
 			</div>
 			";
-	
+	//functie om posts op te halen
 	$posts = getUserPost($id);
 	
 		foreach($posts as $post){

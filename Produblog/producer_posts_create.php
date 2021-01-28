@@ -2,8 +2,6 @@
 
 require_once('assets/includes/include.php');
 
-$con = getDBConnection();
-
 //Hier word gecontroleerd of de gebruiker is ingelogd en of de gebruiker producer of admin is anders geen toegang
 if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or ($_SESSION['usertype'] == 'admin') ) ){
 	
@@ -27,10 +25,6 @@ if(isset($_SESSION['usertype']) && ( ($_SESSION['usertype'] == 'producer')  or (
 		Audio bestanden uploaden:
 		<input type="file" name="fileToUpload" id="fileToUpload">
 		
-		
-      <!-- <h4><label>Short Description(Meta Description) </label><br>
-        <textarea name="articleDescrip" cols="120" rows="6"> <?php// if(isset($error)){ echo $_POST['articleDescrip'];}//?></textarea></h4> -->
-
         <h4><label>Post Inhoud</label><br>
         <textarea name="postcontent" id="textarea1" class="mceEditor" cols="120" rows='20'><?php if(isset($error)){ echo $_POST['postcontent'];}?></textarea></h4>
         

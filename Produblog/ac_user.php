@@ -3,18 +3,20 @@ require_once('assets/includes/include.php');
 	// hier wordt de input meegenomen naar de functie
     if(isset($_POST['Insert'])){
 		
-		//delcare Post = data
+		//delcaratie Post = data
 
 		$data = $_POST;
 		
 		if (empty($data['username']) ||
 			empty($data['password']) ||
 			empty($data['email']) ||
-			empty($data['confirm-password'])) {
+			empty($data['confirm-password']) ||
+			empty($data)
+			) {
     
 			die('Een of meer velden zijn niet correct ingevuld');	
 		}
-		
+		//hier wordt gekeken als wachtwoord en herhaal warchwoord zijn gelijk
 		if ($data['password'] !== $data['confirm-password']) {
 			die('Wachtwoord en herhaal wachtwoord zijn niet gelijk aan elkaar');   
 		}
@@ -48,7 +50,7 @@ require_once('assets/includes/include.php');
 		$date = date('Y-m-d H:i:s');
 		$id = ($_POST['id']);
 
-	//	$id = ($_SESSION['idUsers']);
+	
 		// dit is de functie en die wordt uit het bestand functions.php gehaald
 		updateUserA($username,$email,$usertype,$date, $id);
 		header("location: admin_home.php");

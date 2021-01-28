@@ -9,12 +9,12 @@ require_once('assets/includes/include.php');
 		$comment = $_POST['comment'];
 		$datum = date('Y-m-d H:i:s');
 	if($comment != ""){
-		//$sql = "INSERT INTO comment (idPost, idUsers, username, comment, datum) VALUES ()"
+		
 		insertComment($postid,$userid,$username,$comment,$datum);
 		header("location: ./show.php?id=" . $postid);
 		
 	}
-		
+		//hier wordt de comment verwijderd
 	}elseif(isset($_POST['Delete'])){
 		$id = ($_POST['id']);
 		$postid = $_POST['idPost'];

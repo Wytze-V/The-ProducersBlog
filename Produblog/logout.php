@@ -1,8 +1,8 @@
 <?php
-// Start the session ready to destroy the details
+//Sessie starten op het op te ruimen
 session_start();
 
-//Destroy all evidence
+//Alles van sessie vernietigd
 session_unset();
 session_destroy();
 header("location: login.php");
