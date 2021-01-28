@@ -9,9 +9,9 @@ require_once('assets/includes/include.php');
 
         //Standaard validaties
         if($postname ==''){
-            $error[] = 'Please enter the title.';
+            $error[] = 'Vul een post naam in.';
         }if($postcontent ==''){
-            $error[] = 'Please enter the content.';
+            $error[] = 'Vul de post inhoud in.';
         }if(!isset($error)){
 
           try {

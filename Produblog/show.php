@@ -2,9 +2,6 @@
 
 $con = getDBConnection();
 $id = $_GET["id"];
-
-
-
 	
 if(isset($_POST["page"])){
 		$lastpage = $_POST["page"];
@@ -13,8 +10,6 @@ else{
 	$lastpage = null;	
 }
 
-
-
 	if(isset($_SESSION['idUsers'])){
 		$post = getPost($id);
 		//if post does not exists redirect user.
@@ -22,16 +17,7 @@ else{
 			header('Location: ./');
 			exit;
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
 		echo"
 
 		<div class='container2'>
@@ -57,28 +43,27 @@ else{
 		</div>
 					
 			<div class='container2'>
-			<div class='content2'>
-		<hr class='darkrow'>
-					<div class='row'>
-						<div class='col-lg-4'></div> 
-						<div class='col-lg-10'>
-							<form class='form-horizontal' action='ac_comment.php'  method='POST'>
-							<input type='hidden' name='idPost' value='".html($post->idPost)."' >
-								<div class='form-group'>
-									<label class='col-lg-3 control-label'>Reageren</label>
-									<div class='col-lg-9'>
-										<textarea class='form-control' rows='5' cols='10' name='comment' placeholder='Plaats reactie'></textarea>
-									</div>
-								</div>
-								<input type='submit' name='postcomment' value='Reageer' class='btn btn-primary'>
-							</form>
+				<div class='content2'>
+					<hr class='darkrow'>
+						<div class='row'>
+							<div class='col-lg-4'></div> 
+								<div class='col-lg-10'>
+									<form class='form-horizontal' action='ac_comment.php'  method='POST'>
+										<input type='hidden' name='idPost' value='".html($post->idPost)."' >
+										<div class='form-group'>
+											<label class='col-lg-3 control-label'>Reageren</label>
+											<div class='col-lg-9'>
+												<textarea class='form-control' rows='5' cols='10' name='comment' placeholder='Plaats reactie'></textarea>
+											</div>
+										</div>
+										<input type='submit' name='postcomment' value='Reageer' class='btn btn-primary'>
+									</form>
 				
+								</div>
 						</div>
-					</div>
-							<hr class='darkrow'>
-					<div class='row'>
-						<!-- <div class='col-lg-4'></div> -->
-						<div class='col-lg-6'>
+						<hr class='darkrow'>
+							<div class='row'>
+								<div class='col-lg-6'>
 						
 
 							<h1>Alle Reacties</h1>
@@ -98,7 +83,9 @@ else{
 								echo"
 								<hr class='darkrow'>
 									<p>".html($com->comment)."</p>
+									<br>
 									<p>Geplaatst Door: ".html($com->username)."</p>
+									<p>Geplaatst op: ".html(date('jS M Y', strtotime($com->datum)))."</p>
 									
 
 									";	if(isset($_SESSION['idUsers']) && ($_SESSION['idUsers'] == html($com->idUsers)) ){
@@ -116,25 +103,12 @@ else{
 								}
 							}
 					echo"
-						</div>
-					</div>
-					
-					<!-- </div>   -->        
-		
-
-					
-
-		
-			</div>
-			
-
-
-			
-			
+							</div>
+						</div>	
+			</div>		
 		 </div>
 			
-		";
-				
+		";				
 	}
 
 ?>

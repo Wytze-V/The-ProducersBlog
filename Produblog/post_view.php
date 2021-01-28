@@ -12,12 +12,7 @@ if(isset($_SESSION['usertype'])){
 	";
 	
 		foreach($posts as $post){
-			
-			
-			
-
-			
-		  
+			  
 		  echo"
 		  
 		  

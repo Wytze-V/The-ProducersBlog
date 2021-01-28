@@ -12,11 +12,11 @@ require_once('assets/includes/include.php');
 			empty($data['email']) ||
 			empty($data['confirm-password'])) {
     
-			die('One or more fields are not filled in properly');	
+			die('Een of meer velden zijn niet correct ingevuld');	
 		}
 		
 		if ($data['password'] !== $data['confirm-password']) {
-			die('Password and Confirm password do not match!');   
+			die('Wachtwoord en herhaal wachtwoord zijn niet gelijk aan elkaar');   
 		}
 		
 		else{
